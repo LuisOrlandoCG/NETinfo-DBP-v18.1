@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NETinfo DBP Version 18.1 : Remote Cheque Deposit - Mobile app</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">NETinfo DBP Version 18.1</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Fund-Transfers-and-Payments_112328727.html">Fund Transfers and Payments</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NETinfo DBP Version 18.1 : Remote Cheque Deposit - Mobile app
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Fivi Konstantinou</span>, last modified by <span class='editor'> 1216-Mappoura Andrea</span> on 11, 11, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2"><style>[data-colorid=g5lg6naluk]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=g5lg6naluk]{color:#004eb3}[data-colorid=x1j5f48t4a]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=x1j5f48t4a]{color:#004eb3}[data-colorid=cjcus023gj]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=cjcus023gj]{color:#004eb3}[data-colorid=f38p1e2n7h]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=f38p1e2n7h]{color:#004eb3}[data-colorid=bp4nhg6kwq]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=bp4nhg6kwq]{color:#004eb3}[data-colorid=zg205k6b3x]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=zg205k6b3x]{color:#004eb3}[data-colorid=f8qbpkq7o8]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=f8qbpkq7o8]{color:#004eb3}[data-colorid=rrhvg8uaat]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=rrhvg8uaat]{color:#004eb3}[data-colorid=ve382fh7zr]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=ve382fh7zr]{color:#004eb3}</style>
+<div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>The Remote Cheque Deposit solution enables end-users to deposit their cheques through their mobile app without visiting a local branch. The &lsquo;Remote Cheque Deposit&rsquo; request from the end-user may be viewed and processed through the <a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/1258684417/Remote+Cheque+Deposit+Requests" data-linked-resource-id="1258684417" data-linked-resource-version="15" data-linked-resource-type="page">NETinfo Admin Console</a>. </p><p /><p><strong>NOTE</strong>: The Mobile app pages are implemented within the scope of the Project; the NETinfo DBP product only provides the required APIs</p><h2 id="RemoteChequeDeposit-Mobileapp-ProductMainFeatures/BusinessRequirements"><span data-colorid="cjcus023gj">Product Main Features / Business Requirements</span></h2><ol start="1"><li><p>The Remote Cheque Deposit function conforms to the standard three step process: Submit, Confirm, Complete</p></li><li><p>For successful processing, the end-user must:</p><ol start="1"><li><p>Select a Credit Account</p></li><li><p>Enter the Amount to be deposited</p></li><li><p>Take a picture of the Front and Back side of the cheque</p></li></ol></li><li><p>Allowed credit accounts are:</p><ol start="1"><li><p>Accounts related to a bank product that has the Credit Flag set in the &lsquo;Bank Products&rsquo; admin page.</p></li><li><p>Accounts that end-user has full access rights as defined in User Profile.</p></li><li><p>Accounts under the Customer selected by end-user from the &lsquo;Owner&rsquo; field</p></li><li><p>Accounts of eligible currencies (as configured through the &lsquo;<a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/264077354/Transaction+Type+Currency" data-linked-resource-id="264077354" data-linked-resource-version="31" data-linked-resource-type="page">Transaction Type Currency</a>&rsquo; page in admin console)</p></li></ol></li><li><p>The eligible currencies involved in a deposit are configurable.</p></li><li><p>SCA functionality is not supported.</p></li><li><p>Daily limits at customer, account, user and user-account level are not enforced.</p></li><li><p>Minimum and Maximum Transaction Limits can be enforced (configurable).</p></li><li><p>Remote Cheque Deposit requests may be accessed for further processing by authorised admin-users (through the <a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/1258684417/Remote+Cheque+Deposit+Requests" data-linked-resource-id="1258684417" data-linked-resource-version="15" data-linked-resource-type="page">NETinfo Admin Console</a>)</p></li><li><p>A dedicated Alert (the &lsquo;Remote Cheque Deposit&rsquo; alert) is provided for informing end-user on changes on the status of their deposit requests</p></li><li><p>The following features are not supported:</p><ol start="1"><li><p>Signatures </p></li><li><p>Calculation of charges </p></li><li><p>OCR</p></li><li><p>Cross currency transfers (i.e. Credit Account and Amount to be deposited having different currencies)</p></li></ol></li></ol></div>
+</div>
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<div class="table-wrap"><table data-layout="default" data-local-id="d735ea7c-5f97-44a0-87a0-3a1cc487e2fb" class="confluenceTable"><colgroup><col style="width: 232.0px;" /></colgroup><tbody><tr><th data-highlight-colour="#deebff" class="confluenceTh"><p><strong>On this page</strong></p></th></tr><tr><td class="confluenceTd"><style type="text/css">/*<![CDATA[*/
+div.rbtoc1732263535896 {padding: 0px;}
+div.rbtoc1732263535896 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1732263535896 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class="toc-macro rbtoc1732263535896">
+<ul class="toc-indentation">
+<li><a href="#RemoteChequeDeposit-Mobileapp-ProductMainFeatures/BusinessRequirements">Product Main Features / Business Requirements</a></li>
+<li><a href="#RemoteChequeDeposit-Mobileapp-Configuration">Configuration</a></li>
+<li><a href="#RemoteChequeDeposit-Mobileapp-ActivityDiagram">Activity Diagram</a></li>
+<li><a href="#RemoteChequeDeposit-Mobileapp-Step1:InputPages">Step 1: Input Pages</a>
+<ul class="toc-indentation">
+<li><a href="#RemoteChequeDeposit-Mobileapp-SelectAccountPage">Select Account Page</a></li>
+<li><a href="#RemoteChequeDeposit-Mobileapp-InputAmountPage">Input Amount Page</a></li>
+<li><a href="#RemoteChequeDeposit-Mobileapp-ScanImagePages">Scan Image Pages</a></li>
+</ul>
+</li>
+<li><a href="#RemoteChequeDeposit-Mobileapp-Step2:ConfirmPage">Step 2: Confirm Page</a></li>
+<li><a href="#RemoteChequeDeposit-Mobileapp-Step3:Complete">Step 3: Complete</a></li>
+</ul>
+</div></td></tr><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Related Content</strong></p></td></tr><tr><td class="confluenceTd"><ul><li><p><a href="Fund-Transfers-Activity-Diagram_112263213.html" data-linked-resource-id="112263213" data-linked-resource-version="35" data-linked-resource-type="page">Fund Transfers Activity Diagram</a></p></li><li><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/177012808/System+Configuration+for+Transfers" rel="nofollow">System Configuration for Transfers</a></p></li><li><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/109346825/Abbreviations+Glossary" data-linked-resource-id="109346825" data-linked-resource-version="13" data-linked-resource-type="page">Abbreviations &amp; Glossary</a></p></li><li><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/109576218/Screen+Objects+Actions+-+Definitions" data-linked-resource-id="109576218" data-linked-resource-version="10" data-linked-resource-type="page">Screen Objects and Actions &ndash; Definitions</a></p></li><li><p><a href="Fund-Transfers-and-Payments_112328727.html" data-linked-resource-id="112328727" data-linked-resource-version="72" data-linked-resource-type="page">Fund Transfers and Payments</a></p></li></ul></td></tr></tbody></table></div></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 id="RemoteChequeDeposit-Mobileapp-Configuration"><span data-colorid="ve382fh7zr">Configuration</span></h2><div class="table-wrap"><table data-table-width="1800" data-layout="default" data-local-id="cd5d35b5-e0be-451f-978e-253d1de1fc25" class="confluenceTable"><colgroup><col /><col style="width: 1180.0px;" /><col style="width: 620.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p><strong>Type of Configuration</strong></p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p><strong>How</strong></p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Provide functionality access to User <span class="inline-comment-marker" data-ref="e0360a45-3b66-4828-952b-ba9d0080bd55">Groups</span></p></td><td class="confluenceTd"><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/173342799/User+Groups" data-linked-resource-id="173342799" data-linked-resource-version="51" data-linked-resource-type="page">User Groups</a></p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Define whether SCA will be applied </p></td><td class="confluenceTd"><p><a href="#" rel="nofollow">SCA Configuration</a></p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Setup Content:</p><ul><li><p>Configure disclaimers for input and confirm &lsquo;Remote Cheque Deposit&rsquo; pages</p></li></ul></td><td class="confluenceTd"><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/685113345" data-linked-resource-id="685113345" data-linked-resource-version="32" data-linked-resource-type="page">https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/685113345</a></p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Configure the &lsquo;Remote <span class="inline-comment-marker" data-ref="e18d4177-f727-449c-b5c6-481d9b2205da">Cheque </span>Deposit&rsquo; Alert</p></td><td class="confluenceTd"><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/263323709/Alerts+Configuration" data-linked-resource-id="263323709" data-linked-resource-version="49" data-linked-resource-type="page">Alerts Configuration</a></p></td></tr></tbody></table></div><h2 id="RemoteChequeDeposit-Mobileapp-ActivityDiagram"><span data-colorid="f38p1e2n7h">Activity Diagram</span></h2><p>Figure below depicts the end-user workflow when submitting a Remote Cheque Deposit requests. Referring to this, end-user follows the following steps:</p><ul><li><p>Selects the account to which the cheque will be deposited</p></li><li><p>Enters the amount (and currency) to be deposited</p></li><li><p>Takes a picture of the Front Side of the Cheque; if not satisfied with quality, end-user may select to retake the picture</p></li><li><p>Takes a picture of the Back Side of the Cheque; if not satisfied with quality, end-user may select to retake the picture</p></li><li><p>Confirms the request after confirming that the information associated with the request is correct</p></li></ul><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon" /><div class="confluence-information-macro-body"><p>About the Activity Diagram: The Activity Diagram depicts the main activities in the workflow: boxes indicate end-user activity, decision boxes indicate system decision points and arrow text in brackets indicate major system activity/actions.</p></div></div><div class="ap-container" id="ap-com.mxgraph.confluence.plugins.diagramly__drawio6771217217736719325">
+
+  <div class="ap-content " id="embedded-com.mxgraph.confluence.plugins.diagramly__drawio6771217217736719325" />
+  <script nonce="002f4e5e37455dec" class="ap-iframe-body-script">//<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"com.mxgraph.confluence.plugins.diagramly",
+    "uniqueKey":"com.mxgraph.confluence.plugins.diagramly__drawio6771217217736719325",
+    "key":"drawio",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://ac.draw.io/connect/confluence/viewer-1-4-42.html?ceoId=1245413377&diagramName=Loginprocess&revision=2&width=439&height=541&tbstyle=hidden&simple=0&lbox=1&zoom=1&links=auto&owningPageId=1245413377&displayName=Loginprocess&contentId=&custContentId=1328316464&contentVer=2&inComment=0&aspect=&pCenter=1&hiRes=0&templateUrl=&tmpBuiltIn=&mVer=&pageInfo=&xdm_e=https%3A%2F%2Fnetinfoplc.atlassian.net&xdm_c=channel-com.mxgraph.confluence.plugins.diagramly__drawio6771217217736719325&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.mxgraph.confluence.plugins.diagramly&lic=none&cv=1000.0.0-30022cf6ed22",
+        "structuredContext": "{\"confluence\":{\"editor\":{\"version\":\"\\\"v2\\\"\"},\"macro\":{\"outputType\":\"html_export\",\"hash\":\"e059cb35-e1e6-4839-941b-85cfd5d52c82\",\"id\":\"e059cb35-e1e6-4839-941b-85cfd5d52c82\"},\"content\":{\"type\":\"page\",\"version\":\"19\",\"id\":\"1245413377\"},\"space\":{\"key\":\"PNDV1\",\"id\":\"109281295\"}},\"url\":{\"displayUrl\":\"https://netinfoplc.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"page.id\":\"1245413377\",\"macro.hash\":\"e059cb35-e1e6-4839-941b-85cfd5d52c82\",\"page.type\":\"page\",\"macro.localId\":\"fbc2e205-f991-4503-a459-f450ccb097e8\",\"simple\":\"0\",\"inComment\":\"0\",\": = | RAW | = :\":\"zoom=1|simple=0|inComment=0|custContentId=1328316464|pageId=1245413377|lbox=1|diagramDisplayName=Loginprocess|contentVer=2|hiResPreview=0|revision=2|baseUrl=https://netinfoplc.atlassian.net/wiki|diagramName=Loginprocess|pCenter=1|width=439|links=auto|tbstyle=hidden|height=541\",\"space.id\":\"109281295\",\"diagramDisplayName\":\"Loginprocess\",\"hiResPreview\":\"0\",\"diagramName\":\"Loginprocess\",\"links\":\"auto\",\"tbstyle\":\"hidden\",\"user.isExternalCollaborator\":\"false\",\"height\":\"541\",\"space.key\":\"PNDV1\",\"content.version\":\"19\",\"page.title\":\"Remote Cheque Deposit - Mobile app\",\"zoom\":\"1\",\"macro.body\":\"\",\"custContentId\":\"1328316464\",\"pageId\":\"1245413377\",\"macro.truncated\":\"false\",\"lbox\":\"1\",\"content.type\":\"page\",\"output.type\":\"html_export\",\"contentVer\":\"2\",\"page.version\":\"19\",\"revision\":\"2\",\"baseUrl\":\"https://netinfoplc.atlassian.net/wiki\",\"macro.fragmentLocalId\":\"\",\"pCenter\":\"1\",\"content.id\":\"1245413377\",\"width\":\"439\",\"macro.id\":\"e059cb35-e1e6-4839-941b-85cfd5d52c82\",\"editor.version\":\"\\\"v2\\\"\"}",
+    "timeZone":"UTC",
+    "origin":"https://ac.draw.io",
+    "hostOrigin":"https://netinfoplc.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",    "pearApp":"true",        "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+</script>
+
+</div>
+<p /><h2 id="RemoteChequeDeposit-Mobileapp-Step1:InputPages"><span data-colorid="bp4nhg6kwq">Step 1: Input Pages</span></h2><p>End-User is navigated through the following pages to ensure that all required information (for processing the request) are captured:</p><ul><li><p>Select Account page</p></li><li><p>Enter Amount page</p></li><li><p>Scan Images pages</p></li></ul><p>Each of these is further elaborated below</p><h3 id="RemoteChequeDeposit-Mobileapp-SelectAccountPage"><span data-colorid="x1j5f48t4a">Select Account Page</span></h3><p>The figure below (UI/UX), presents the &lsquo;Select Account&rsquo; input page. Referring to this, end-user is prompted to select the account the cheque will be deposited to; the option to search for an account is also available.</p><p>Once an account is selected, the end-user is navigated to the next page</p><div id="expander-1121025897" class="expand-container"><div id="expander-control-1121025897" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">UI/UX - Select Account</span></div><div id="expander-content-1121025897" class="expand-content"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1245413377/1245609989.png" data-image-src="attachments/1245413377/1245609989.png" data-height="668" data-width="309" data-unresolved-comment-count="0" data-linked-resource-id="1245609989" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="step1selectaccount.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1245413377" data-linked-resource-container-version="19" data-media-id="e3dc615e-def4-4996-8f86-04489957aeba" data-media-type="file" /></span><p /></div></div><div id="expander-1802705358" class="expand-container"><div id="expander-control-1802705358" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-1802705358" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="bc06c0df-3520-4440-8cee-7c83349e9073" class="confluenceTable"><colgroup><col /><col style="width: 134.0px;" /><col style="width: 98.0px;" /><col style="width: 456.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Deposit a Cheque</p></td><td class="confluenceTd"><p>Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Back</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Select the account money will be deposited to</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>Keyword Search</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Account</p></td><td class="confluenceTd"><p>Single selection</p></td><td class="confluenceTd"><p>&nbsp;Options: list of eligible accounts where eligible accounts are:</p><ul><li><p>Accounts that have the Credit flag set in the Bank Products admin page</p></li><li><p>Accounts connected to the selected Customer</p></li><li><p>Accounts to which end-user has Full Access rights</p></li><li><p>Accounts of eligible currencies</p></li></ul><p>Information shown per account:</p><ul><li><p>Account Alias or </p></li><li><p>Account Number (in the absence of an Alias) </p></li><li><p>&amp; Available balance with 3digit currency</p></li></ul><p>&nbsp;Order of display:</p><ul><li><p>Based on priority set by end-user (through &lsquo;Account Personalisation&rsquo; function)</p></li><li><p>Account nickname [if one has been specified]</p></li><li><p>Rest based on Ascending Account number order</p></li></ul></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>Disclaimer</p></td><td class="confluenceTd"><p>Disclaimer</p></td><td class="confluenceTd"><p>Visible under specific conditions: if configured.</p></td></tr></tbody></table></div><p /></div></div><div id="expander-1240090551" class="expand-container"><div id="expander-control-1240090551" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-1240090551" class="expand-content"><p>Table below depicts the major screen actions and system events taking place at input stage.</p><div class="table-wrap"><table data-layout="default" data-local-id="3f595ee5-ddfc-45f8-bb14-bf809644a349" class="confluenceTable"><colgroup><col style="width: 111.0px;" /><col style="width: 171.0px;" /><col style="width: 448.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>End-user selects Cancel.</p></td><td class="confluenceTd"><p>End-user is redirected to the Move Money page</p></td></tr><tr><td class="confluenceTd"><p>Back</p></td><td class="confluenceTd"><p>End-user selects Back.</p></td><td class="confluenceTd"><p>End-user is redirected to the Move Money page</p></td></tr><tr><td class="confluenceTd"><p>Account</p></td><td class="confluenceTd"><p>End-user selects Account.</p></td><td class="confluenceTd"><p>End-user is redirected to the next step</p></td></tr></tbody></table></div></div></div><h3 id="RemoteChequeDeposit-Mobileapp-InputAmountPage"><span data-colorid="f8qbpkq7o8">Input Amount Page</span></h3><p>The figure below (UI/UX), presents the &lsquo;Input Amount&rsquo; input page. Referring to this, end-user is prompted to enter the cheque amount (the currency defaults to the credit account currency, and cannot be modified).</p><p>End-user proceeds to the next step by selecting the proceed button.</p><div id="expander-116795950" class="expand-container"><div id="expander-control-116795950" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">UI/UX - Input Amount</span></div><div id="expander-content-116795950" class="expand-content"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1245413377/1245675531.png" data-image-src="attachments/1245413377/1245675531.png" data-height="673" data-width="321" data-unresolved-comment-count="0" data-linked-resource-id="1245675531" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="step1amount.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1245413377" data-linked-resource-container-version="19" data-media-id="85a030ca-42f5-43b6-a303-ad8b0b98e264" data-media-type="file" /></span><p /></div></div><div id="expander-1983449197" class="expand-container"><div id="expander-control-1983449197" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-1983449197" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="efee3645-cb91-402a-b3c8-d52fb36b1651" class="confluenceTable"><colgroup><col /><col style="width: 136.0px;" /><col style="width: 98.0px;" /><col style="width: 454.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Deposit a Cheque</p></td><td class="confluenceTd"><p>Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Back</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Insert the amount of the deposit</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>Amount</p></td><td class="confluenceTd"><p>Amount</p></td><td class="confluenceTd"><p>Compulsory</p><p>Amount and currency</p><p>Currency is in a read only format (same currency of the credit account / cross currency is not allowed)</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Proceed</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>Disclaimer</p></td><td class="confluenceTd"><p>Disclaimer</p></td><td class="confluenceTd"><p>Visible under specific conditions: if configured.</p></td></tr></tbody></table></div><p /></div></div><div id="expander-1815693464" class="expand-container"><div id="expander-control-1815693464" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-1815693464" class="expand-content"><p>Table below depicts the major screen actions and system events taking place at input stage.</p><div class="table-wrap"><table data-layout="default" data-local-id="7daec16b-a6e2-4e68-9430-869af7a0f4d2" class="confluenceTable"><colgroup><col style="width: 112.0px;" /><col style="width: 172.0px;" /><col style="width: 446.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>End-user selects Cancel.</p></td><td class="confluenceTd"><p>End-user is redirected to the Move Money page</p></td></tr><tr><td class="confluenceTd"><p>Back</p></td><td class="confluenceTd"><p>End-user selects Back.</p></td><td class="confluenceTd"><p>End-user is redirected to the Select Account page</p></td></tr><tr><td class="confluenceTd"><p>Proceed</p></td><td class="confluenceTd"><p>Amount is &lt;= 0.</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;The amount must be greater than 0&rsquo;.</p></td></tr><tr><td class="confluenceTd"><p>Proceed</p></td><td class="confluenceTd"><p>End-user selects Proceed and Maximum Transaction Type Limit exceeded.</p></td><td class="confluenceTd"><p>Display Error Message: 'You have exceeded the maximum Transaction Type Limit &lt;Max. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Proceed</p></td><td class="confluenceTd"><p>End-user selects Proceed and Minimum Transaction Type Limit exceeded.</p></td><td class="confluenceTd"><p>Display Error Message: 'Transaction amount is below minimum allowed &lt;Min. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Proceed</p></td><td class="confluenceTd"><p>End-user selects Proceed and a mandatory field has not been completed.</p></td><td class="confluenceTd"><p>Message displayed: &lsquo;&lt;Field Name&gt;: Value is required.&rsquo;</p><p>&nbsp;Message displayed underneath the field: &lsquo;Value is required&rsquo;.</p></td></tr><tr><td class="confluenceTd"><p>Proceed</p></td><td class="confluenceTd"><p>All validations have been successful.</p></td><td class="confluenceTd"><p>End-user is redirected to the scan image page</p></td></tr></tbody></table></div></div></div><h3 id="RemoteChequeDeposit-Mobileapp-ScanImagePages"><span data-colorid="zg205k6b3x">Scan Image Pages</span></h3><p>The figure below (UI/UX), presents the &lsquo;Scan Image&rsquo; input pages. Referring to this, end-user is prompted to read the instructions provided by the bank and scan the front side of the cheque. In case they are satisfied with the quality of the image captured, they may proceed with capturing the back-end side of the cheque by selecting the &lsquo;Use Photo&rsquo; option and pressing &lsquo;Proceed&rsquo; on the pop up message that appears; alternatively, they may select the &lsquo;Retake&rsquo; option for retaking the picture of the cheque. </p><p>The same process is followed for capturing the image of the back-side of the cheque. When end-user is satisfied with the quality of the image captured, then by pressing the &lsquo;Use Photo&rsquo; option a confirmation pop-up appears; upon selecting &lsquo;Done&rsquo;, they are navigated to the Confirm Page.</p><div id="expander-1479860645" class="expand-container"><div id="expander-control-1479860645" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">UI/UX - Scan Image</span></div><div id="expander-content-1479860645" class="expand-content"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1245413377/1244921924.png" data-image-src="attachments/1245413377/1244921924.png" data-height="1096" data-width="2143" data-unresolved-comment-count="0" data-linked-resource-id="1244921924" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="step1scanimage.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1245413377" data-linked-resource-container-version="19" data-media-id="d30a1e85-60ba-4a9e-b71d-14ee4d2057f1" data-media-type="file" /></span><p /></div></div><div id="expander-1229002782" class="expand-container"><div id="expander-control-1229002782" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-1229002782" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="155cf2f9-ce8e-4566-abe2-ffc853bff3a7" class="confluenceTable"><colgroup><col /><col style="width: 136.0px;" /><col style="width: 98.0px;" /><col style="width: 454.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Deposit a Cheque</p></td><td class="confluenceTd"><p>Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Back</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Cheque scanner</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p><p>Content to be provided by the bank</p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>Start</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Camera (Scan front side of cheque)</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>The Mobile&rsquo;s camera is activated, and end-user is prompted to take a picture. End-user has the option to:</p><ul><li><p>Accept the image by selecting the &lsquo;Use Photo&rsquo; option; a pop-up window appears (displaying the message &lsquo;Front side uploaded. Proceed to the back side&rsquo;). and end-user may proceed to the capturing of the image of the back-side of the cheque by pressing the &lsquo;Proceed&rsquo; button</p></li><li><p>Retake the picture by selecting the &lsquo;Retake&rsquo; option</p></li></ul><p>End-user can select &lsquo;Cancel&rsquo; and be redirected to the previous page</p></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>Camera (Scan back side of cheque)</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>The Mobile&rsquo;s camera is activated, and end-user is prompted to take a picture. End-user has the option to:</p><ul><li><p>Accept the image by selecting the &lsquo;Use Photo&rsquo; option; a pop-up window appears (displaying the message &lsquo;Back side uploaded. Click done to proceed&rsquo;) and end-user may proceed to the confirmation page by pressing the &lsquo;Done&rsquo; button</p></li><li><p>Retake the picture by selecting the &lsquo;Retake&rsquo; option</p></li></ul><p>End-user can select &lsquo;Cancel&rsquo; and be redirected to the &lsquo;Move Money&rsquo; page</p></td></tr></tbody></table></div><p /></div></div><div id="expander-759636426" class="expand-container"><div id="expander-control-759636426" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-759636426" class="expand-content"><p>Table below depicts the major screen actions and system events taking place at input stage.</p><div class="table-wrap"><table data-layout="default" data-local-id="183635cc-4f13-47af-a5f2-f1b37755e5b5" class="confluenceTable"><colgroup><col style="width: 110.0px;" /><col style="width: 172.0px;" /><col style="width: 448.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>End-user selects Cancel.</p></td><td class="confluenceTd"><p>End-user is redirected to the Move Money page</p></td></tr><tr><td class="confluenceTd"><p>Back</p></td><td class="confluenceTd"><p>End-user selects Back.</p></td><td class="confluenceTd"><p>End-user is redirected to the Input Amount page</p></td></tr><tr><td class="confluenceTd"><p>Proceed</p></td><td class="confluenceTd"><p>End-user selects Proceed.</p></td><td class="confluenceTd"><p>End-user is prompted to take a picture of the back side of the cheque</p></td></tr><tr><td class="confluenceTd"><p>Done</p></td><td class="confluenceTd"><p>End-user selects Done.</p></td><td class="confluenceTd"><p>End-user is redirected to the Confirm page</p></td></tr></tbody></table></div></div></div><h2 id="RemoteChequeDeposit-Mobileapp-Step2:ConfirmPage"><span data-colorid="rrhvg8uaat">Step 2: Confirm Page</span></h2><p>Referring to the screen below (UI/UX), end-user is displayed with:</p><ul><li><p>The amount to be deposited as entered by the end-user</p></li><li><p>The credit account as selected by end-user</p></li><li><p>Confirmation on the uploading of the front and back sides of the cheque images</p></li></ul><p>End-user is prompted to either Confirm or Cancel the Remote Cheque Deposit request.</p><div id="expander-820021006" class="expand-container"><div id="expander-control-820021006" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">UI/UX</span></div><div id="expander-content-820021006" class="expand-content"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1245413377/1247477763.png" data-image-src="attachments/1245413377/1247477763.png" data-height="668" data-width="366" data-unresolved-comment-count="0" data-linked-resource-id="1247477763" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="step2confirm.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1245413377" data-linked-resource-container-version="19" data-media-id="1a249d7b-4a97-4535-91b5-a9107c29739c" data-media-type="file" /></span><p /></div></div><div id="expander-804696156" class="expand-container"><div id="expander-control-804696156" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-804696156" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="09e55ed7-11e0-42c5-8337-2d391f8fd4b3" class="confluenceTable"><colgroup><col /><col style="width: 106.0px;" /><col style="width: 73.0px;" /><col style="width: 509.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Review the details</p></td><td class="confluenceTd"><p>Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Back</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Amount to be deposited</p></td><td class="confluenceTd"><p>Amount</p></td><td class="confluenceTd"><p>Read Only</p><p>Data: Amount / Currency</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>To Account</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>Front side of cheque</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p><p>'Submitted Successfully'</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Back side of cheque</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p><p>'Submitted Successfully'</p></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">8</td><td class="confluenceTd"><p>Confirm</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">9</td><td class="confluenceTd"><p>Disclaimer</p></td><td class="confluenceTd"><p>Disclaimer</p></td><td class="confluenceTd"><p>Visible, under specific conditions: if configured.</p></td></tr></tbody></table></div></div></div><div id="expander-2104913512" class="expand-container"><div id="expander-control-2104913512" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-2104913512" class="expand-content"><p>Table below depicts the major screen actions and system events taking place at Confirm Stage (note: field and data validations at submit are repeated during Confirm - these have not been included in the table below for simplicity)</p><div class="table-wrap"><table data-layout="default" data-local-id="0501c44f-b72d-4a90-bca8-ba5073800a14" class="confluenceTable"><colgroup><col style="width: 122.0px;" /><col style="width: 188.0px;" /><col style="width: 420.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td class="confluenceTd"><p>Back</p></td><td class="confluenceTd"><p>End-user selects Back.</p></td><td class="confluenceTd"><p>End-user is navigated to Step 1: input</p></td></tr><tr><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>End-user selects Cancel.</p></td><td class="confluenceTd"><p>End-user is navigated to Move Money step</p></td></tr><tr><td class="confluenceTd"><p>Confirm </p></td><td class="confluenceTd"><p>Maximum Transaction Type Limit exceeded.</p></td><td class="confluenceTd"><p>Display Error Message: 'You have exceeded the maximum Transaction Type Limit &lt;Max. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Confirm</p></td><td class="confluenceTd"><p>Minimum Transaction Type Limit not met.</p></td><td class="confluenceTd"><p>Display Error Message: 'Transaction amount is below minimum allowed &lt;Min. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Confirm </p></td><td class="confluenceTd"><p>All validations &amp; checks are successful.</p></td><td class="confluenceTd"><p>The following actions are taken by the system:</p><ul><li><p>The transaction is submitted to the administrator for manual processing (<a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/1258684417/Remote+Cheque+Deposit+Requests" data-linked-resource-id="1258684417" data-linked-resource-version="15" data-linked-resource-type="page">Remote Cheque Deposit Processing</a>)</p></li><li><p>The status changes to &lsquo;Submitted&rsquo; (or &lsquo;Failed&rsquo; if something goes wrong) </p></li><li><p>The transaction is registered to the &lsquo;Online Transaction Status&rsquo;</p></li><li><p>The &lsquo;Remote Cheque Deposit&rsquo; alert is forwarded to the end-user </p></li><li><p>The transaction is logged</p></li></ul></td></tr></tbody></table></div></div></div><h2 id="RemoteChequeDeposit-Mobileapp-Step3:Complete"><span data-colorid="g5lg6naluk">Step 3: Complete</span></h2><p>Referring to the screen below (UI/UX), the end-user is displayed with the transaction status and the options to:</p><ul><li><p>Export the TX details in PDF </p></li><li><p>View Details </p></li><li><p>View Status </p></li></ul><p>By pressing the &lsquo;Done&rsquo; button, end-user is redirected to the Move Money landing page </p><div id="expander-1285412911" class="expand-container"><div id="expander-control-1285412911" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">UI/UX</span></div><div id="expander-content-1285412911" class="expand-content"><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1245413377/1247150123.png" data-image-src="attachments/1245413377/1247150123.png" data-height="679" data-width="343" data-unresolved-comment-count="0" data-linked-resource-id="1247150123" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="step3complete.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1245413377" data-linked-resource-container-version="19" data-media-id="9eb7da27-d091-44ca-b868-726279201284" data-media-type="file" /></span><p /></div></div><div id="expander-69432152" class="expand-container"><div id="expander-control-69432152" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-69432152" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="de590254-681a-42bb-ac82-0b6a113655a2" class="confluenceTable"><colgroup><col /><col style="width: 139.0px;" /><col style="width: 131.0px;" /><col style="width: 418.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Transaction Status</p></td><td class="confluenceTd"><p>Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Unique Transaction Number</p></td><td class="confluenceTd"><p>Text / Number</p></td><td class="confluenceTd"><p>Read Only</p><p>&nbsp;NETinfo DBP reference number for the transaction (UTN) </p><p>&nbsp;&nbsp;The possible Transaction Status are:</p><ul><li><p>Submitted: transaction has been submitted to administrators for review and manual processing</p></li></ul></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>View Status</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>None</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Export Details</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>None</p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>View Details</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>None</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Done</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>None</p></td></tr></tbody></table></div></div></div><div id="expander-371016416" class="expand-container"><div id="expander-control-371016416" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-371016416" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="9ba644a4-1820-4593-8401-7b122e1d40d2" class="confluenceTable"><colgroup><col style="width: 126.0px;" /><col style="width: 204.0px;" /><col style="width: 400.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td class="confluenceTd"><p>Export Details</p></td><td class="confluenceTd"><p>End-user selects Export Details.</p></td><td class="confluenceTd"><p>The transaction details as displayed in the Confirm Page are exported to PDF.</p></td></tr><tr><td class="confluenceTd"><p>View Status</p></td><td class="confluenceTd"><p>End-user selects View Status.</p></td><td class="confluenceTd"><p>End-user is redirected to Online Transaction Status Page.</p></td></tr><tr><td class="confluenceTd"><p>View Details</p></td><td class="confluenceTd"><p>End-user selects View Details.</p></td><td class="confluenceTd"><p>The transaction details as presented in the Confirm Page are displayed.</p></td></tr><tr><td class="confluenceTd"><p>Done</p></td><td class="confluenceTd"><p>End-user selects Done.</p></td><td class="confluenceTd"><p>End-user is navigated to the Move Money.</p></td></tr></tbody></table></div></div></div><p /></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413412.png">TransferBetweenMyAccountsInput1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413415.png">TransferBetweenMyAccountsInput3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413418.png">TransferBetweenMyAccountsInput2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413421.png">TransferBetweenMyAccountsComplete2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413424.png">TransferBetweenMyAccountsConfirm2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413427.png">high resolution step 2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413430.png">high resolution step 1 later.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413433.png">high resolution step 1 repeated.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413436.png">high resolution step 3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413439.png">high resolution.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413442.png">Example 4.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413445.png">demo59.netteller.com.cy_netteller_TransferBetweenMyAccounts.xhtml(High Resol Screenshot).png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413448.png">demo55.netteller.com.cy_netteller-console-war_DynamicPage.xhtml(High Resol Screenshot).png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413451.png">picture 1 step 3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413454.png">picture 1 step 2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413457.png">image-20210107-152826.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413460.png">image-20210107-152440.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413463.png">Example 2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413466.png">picture 1 step 1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413469.png">image-20210107-112318.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413472.png">image-20210107-112307.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413475.png">image-20210107-112219.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413478.png">image-20210107-112201.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413481.png">image-20210107-100233.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413484.png">image-20201221-125545.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413487.png">Picture2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413490.png">Picture3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413493.png">input.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413496.png">Picture4.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413499.png">numbering 1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413502.png">picture 2 step 1.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413505.png">picture 3 step 1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245413508.png">C-01-login.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245609989.png">step1selectaccount.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1245675531.png">step1amount.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1244921924.png">step1scanimage.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1247477763.png">step2confirm.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1247150123.png">step3complete.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328119819.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328644101.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327890507.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328709639.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328545814.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327923274.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328447507.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327693915.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327759473.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328644114.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328676873.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328382003.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328611347.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328709652.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327955996.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328447520.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327562832.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328087075.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328119832.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328185372.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327890520.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327693928.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328250893.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328250902.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328316447.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327890529.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327890538.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327890547.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328087088.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327824979.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328578571.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328676886.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328709672.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328775181.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328545827.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327923297.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328775190.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327693941.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328152608.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328807957.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328447541.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327562849.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328087097.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327562862.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328807970.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328119857.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328480285.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327956013">Loginprocess</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328644149.png">Loginprocess.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1327988802.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328283685.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328742412.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328021534.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328054285.tmp">~Loginprocess.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328119866">Loginprocess</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1245413377/1328676903.png">Loginprocess.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 22, 11, 2024 08:18</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

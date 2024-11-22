@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NETinfo DBP Version 18.1 : Quick Pay</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">NETinfo DBP Version 18.1</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Fund-Transfers-and-Payments_112328727.html">Fund Transfers and Payments</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NETinfo DBP Version 18.1 : Quick Pay
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Fivi Konstantinou</span>, last modified by <span class='editor'> 1246-Spyrou Marios</span> on 04, 10, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2"><style>[data-colorid=v3ita90ryx]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=v3ita90ryx]{color:#004eb3}[data-colorid=yoykr3bcsf]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=yoykr3bcsf]{color:#004eb3}[data-colorid=zeiqpjvvx4]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=zeiqpjvvx4]{color:#004eb3}[data-colorid=zkalbgbg5z]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=zkalbgbg5z]{color:#004eb3}[data-colorid=jyduo55ift]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=jyduo55ift]{color:#004eb3}[data-colorid=a0w34bvf10]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=a0w34bvf10]{color:#004eb3}[data-colorid=nm1wx0b87l]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=nm1wx0b87l]{color:#004eb3}[data-colorid=p3raq4gdym]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=p3raq4gdym]{color:#004eb3}</style>
+<div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<hr /><p>End-users can register and use the quick pay service for easy payments to/from other registered for the service end-users. When making a Quick Pay payment, the end-user may select the beneficiary by entering their mobile number or selecting them from their phone&rsquo;s contact list. </p><p><strong>NOTE</strong>: he Mobile app pages are implemented within the scope of the Project; the NETinfo DBP product only provides the required APIs</p><h2 id="QuickPay-ProductMainFeatures/BusinessRequirements"><span data-colorid="a0w34bvf10">Product Main Features / Business Requirements</span></h2><ol start="1"><li><p>End-user can select to register to or unregister from the quick pay service; only registered end-users can use the service</p></li><li><p>For the Quick Pay service, end-users will be linked to the mobile number registered in their User Profile (the relationship between end-user and mobile number is unique)</p></li><li><p>When registering, end-users:</p><ol start="1"><li><p>Must select the default account to be used in quick pay (this will be used for debit and credit purposes) from a list of eligible accounts</p></li><li><p>May read the associated Terms and Conditions (these are not configurable)</p></li></ol></li><li><p>Eligible debit accounts are:</p><ol start="1"><li><p>Accounts that fall under a Bank Product that has been configured in NETinfo DBP to allow debits (from its accounts) for the particular transaction type</p></li><li><p>Accounts that end-user has Input privileges (for the particular transaction type) as defined in User Profile.</p></li><li><p>Accounts under the Customer selected by end-user from the &lsquo;Owner&rsquo; field.</p></li></ol></li><li><p>When making a Quick Pay payment, end-user:</p><ol start="1"><li><p>May use the existing default debit account (as selected in the &lsquo;Quick Pay Registration&rsquo; page) or select a new account (from a list of eligible accounts) for the specific transaction</p></li><li><p>Must enter the beneficiary by either entering the associated mobile number or selection through their phone&rsquo;s contact list</p></li><li><p>Must enter the amount to be paid</p></li><li><p>May add a description of the payment</p></li></ol></li><li><p>Upon entering the beneficiary&rsquo;s mobile number (either manually or through contact list), system should validate it and:</p><ol start="1"><li><p>Return the Account Number and Beneficiary&rsquo;s Name &amp; Surname (as stored in the associated User Profile) in masked format if the mobile number exists in a User Profile, or</p></li><li><p>Return an exception message if the mobile number is not found</p></li></ol></li><li><p>The Quick Pay payment transaction conforms to the three steps process: Input, Confirm, Complete</p></li><li><p>Only base currency payments are allowed</p></li><li><p>SCA can be enforced (configurable)</p></li><li><p>Daily limits at customer, account, user and user-account level can be enforced (configurable)</p></li><li><p>Minimum and Maximum Transaction Limits can be enforced (configurable)</p></li><li><p>The following features (that apply for Fund Transfers) are not applicable for the Quick Pay service:</p><ol start="1"><li><p>Option to schedule the fund transfer at a future date, or set as standing order</p></li><li><p>Disclaimers</p></li><li><p>Signatures</p></li><li><p>Calculation of charges</p></li></ol></li></ol><h2 id="QuickPay-Configuration"><span data-colorid="nm1wx0b87l">Configuration</span></h2><div class="table-wrap"><table data-layout="default" data-local-id="cfb720d4-45d6-451f-88aa-3e76ef8562b2" class="confluenceTable"><colgroup><col /><col style="width: 292.0px;" /><col style="width: 156.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p><strong>Type of Configuration</strong></p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p><strong>How</strong></p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Define access of existing User Groups to the QuickPay Service</p></td><td class="confluenceTd"><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/245301249/Administrator+Maintenance" data-linked-resource-id="245301249" data-linked-resource-version="13" data-linked-resource-type="page">User Roles &amp; Privileges</a>:</p><p>User Groups</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Configure the &lsquo;<span class="inline-comment-marker" data-ref="abc98847-bd84-4259-8937-28aad68e4615">QuickPay</span>&rsquo; Alert</p></td><td class="confluenceTd"><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/263323709/Alerts+Configuration" data-linked-resource-id="263323709" data-linked-resource-version="49" data-linked-resource-type="page">Alerts Configuration</a></p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Configure Quick Pay Transaction Type Limits</p><ul><li><p>User Daily Limit (from User Management/Configuration tab)</p></li><li><p>Customer Daily Limit (from Bank Customer Management)</p></li><li><p>Account Daily Limit (from Account Management)</p></li><li><p>User Account Daily Limit (from User Management/Accounts tab)</p></li><li><p>Transaction Type Limits (from Transaction Type Limits)</p></li></ul></td><td class="confluenceTd"><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/263323716/Transaction+Type+Limits" data-linked-resource-id="263323716" data-linked-resource-version="24" data-linked-resource-type="page">Transaction Type Limits</a>:</p><p>User Management</p><p>Bank Customer Management</p><p>Account Management</p><p>Transaction Type Limits</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Configure Transaction Type Currencies for QuickPay</p></td><td class="confluenceTd"><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/264077354/Transaction+Type+Currency" data-linked-resource-id="264077354" data-linked-resource-version="31" data-linked-resource-type="page">Transaction Type Currencies</a></p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>Configure Strong Factor Authentication</p></td><td class="confluenceTd"><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/252313911/SCA+Configuration+Administrator" data-linked-resource-id="252313911" data-linked-resource-version="30" data-linked-resource-type="page">SCA Configuration</a></p></td></tr></tbody></table></div></div>
+</div>
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<div class="table-wrap"><table data-layout="default" data-local-id="890359c3-952d-42bb-b15c-d5974466b0c3" class="confluenceTable"><colgroup><col style="width: 232.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>On this page</strong></p></td></tr><tr><td class="confluenceTd"><style type="text/css">/*<![CDATA[*/
+div.rbtoc1732263494697 {padding: 0px;}
+div.rbtoc1732263494697 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1732263494697 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class="toc-macro rbtoc1732263494697">
+<ul class="toc-indentation">
+<li><a href="#QuickPay-ProductMainFeatures/BusinessRequirements">Product Main Features / Business Requirements</a></li>
+<li><a href="#QuickPay-Configuration">Configuration</a></li>
+<li><a href="#QuickPay-ActivityDiagram">Activity Diagram</a></li>
+<li><a href="#QuickPay-EnablingtheQuickPayService">Enabling the Quick Pay Service</a></li>
+<li><a href="#QuickPay-STEP1/2:Input">STEP 1/2: Input</a></li>
+<li><a href="#QuickPay-STEP3:InputAmount">STEP 3: Input Amount</a></li>
+<li><a href="#QuickPay-Step4:Confirm">Step 4: Confirm</a></li>
+<li><a href="#QuickPay-Step5:Complete">Step 5: Complete</a></li>
+</ul>
+</div></td></tr><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p><strong>Related Content</strong></p></td></tr><tr><td class="confluenceTd"><ul><li><p><a class="external-link" href="https://app.zeplin.io/project/626bd467c2e0799889fcc3e3/dashboard?tag=P2P%20Quick%20Pay%20Transfer" rel="nofollow"><span class="inline-comment-marker" data-ref="c33bcac7-8586-4ca7-a0c8-2e21411cc56f">Link to Designs</span></a></p></li><li><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/109346825/Abbreviations+Glossary" data-linked-resource-id="109346825" data-linked-resource-version="13" data-linked-resource-type="page">Abbreviations &amp; Glossary</a></p></li><li><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/109576218/Screen+Objects+Actions+-+Definitions" data-linked-resource-id="109576218" data-linked-resource-version="10" data-linked-resource-type="page">Screen Objects and Actions &ndash; Definitions</a></p></li><li><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/177242135/Product+List" data-linked-resource-id="177242135" data-linked-resource-version="100" data-linked-resource-type="page">Product List</a></p></li></ul></td></tr></tbody></table></div></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 id="QuickPay-ActivityDiagram"><span data-colorid="yoykr3bcsf">Activity Diagram</span></h2><p>Figure below depicts the end-user workflows relating to the &lsquo;Quick Pay&rsquo; function.  Referring to this and given that the &lsquo;Quick Pay&rsquo; function is only available for registered (to the service) end-users, the first thing that needs to be done is registration. The associated workflow for registration is displayed in the left hand side of the diagram. Basically, end-user needs to:</p><ul><li><p>Toggle the &lsquo;Quick Pay&rsquo; option in Settings, and</p></li><li><p>Select the account that will be used by default for debiting/crediting initiated by the Quick Pay function (this will be their default &lsquo;Quick Pay&rsquo; account); the default account may be changed at any time</p></li></ul><p>The associated T&amp;Cs may be displayed at any time</p><p>Upon registration, the end-user is &lsquo;known&rsquo; to the Quick Pay function by their mobile number. A registered end-user can thereafter select to unregister (by toggling the Quick Pay option in Settings - see right hand side flow in diagram) or make a 'Quick Pay' payment (refer to the workflow in the centre of the diagram) by:</p><ul><li><p>Optionally selecting a debit account different than the &lsquo;Quick Pay&rsquo; account</p></li><li><p>Selecting a beneficiary using one of the following methods:</p><ul><li><p>Manual entry of mobile number of beneficiary</p></li><li><p>Selection of beneficiary from their phone&rsquo;s contact list</p></li><li><p>Selecting a beneficiary from the &lsquo;Recent Beneficiary&rsquo; list</p></li></ul></li><li><p>If the beneficiary selected is a (valid) registered &lsquo;Quick Pay&rsquo; end-user, then the beneficiary name and account are displayed in masked format (if beneficiary is not found, an exception message appears) and the end-user is prompted to enter the amount to be transferred and (optionally) a description</p></li><li><p>End-User must Submit and subsequently Confirm the transfer of money (money will be transferred from the end-users debit account to the beneficiary&rsquo;s Quick Pay account)</p></li></ul><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon" /><div class="confluence-information-macro-body"><p>About the Activity Diagram: The Activity Diagram depicts the main activities in the workflow: boxes indicate end-user activity, decision boxes indicate system decision points and arrow text in brackets indicate major system activity/actions.</p></div></div><div class="ap-container" id="ap-com.mxgraph.confluence.plugins.diagramly__drawio4410500352119317784">
+
+  <div class="ap-content " id="embedded-com.mxgraph.confluence.plugins.diagramly__drawio4410500352119317784" />
+  <script nonce="002f4e5e37455dec" class="ap-iframe-body-script">//<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"com.mxgraph.confluence.plugins.diagramly",
+    "uniqueKey":"com.mxgraph.confluence.plugins.diagramly__drawio4410500352119317784",
+    "key":"drawio",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://ac.draw.io/connect/confluence/viewer-1-4-42.html?ceoId=1321861121&diagramName=QUICKPAY&revision=4&width=811&height=962&tbstyle=hidden&simple=0&lbox=1&zoom=1&links=auto&owningPageId=1321861121&displayName=messaging&contentId=&custContentId=1328545896&contentVer=4&inComment=0&aspect=&pCenter=1&hiRes=0&templateUrl=&tmpBuiltIn=&mVer=&pageInfo=&xdm_e=https%3A%2F%2Fnetinfoplc.atlassian.net&xdm_c=channel-com.mxgraph.confluence.plugins.diagramly__drawio4410500352119317784&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.mxgraph.confluence.plugins.diagramly&lic=none&cv=1000.0.0-30022cf6ed22",
+        "structuredContext": "{\"confluence\":{\"editor\":{\"version\":\"\\\"v2\\\"\"},\"macro\":{\"outputType\":\"html_export\",\"hash\":\"84d95ec8-b569-4b80-a3a1-a7e761a3e2c3\",\"id\":\"84d95ec8-b569-4b80-a3a1-a7e761a3e2c3\"},\"content\":{\"type\":\"page\",\"version\":\"34\",\"id\":\"1321861121\"},\"space\":{\"key\":\"PNDV1\",\"id\":\"109281295\"}},\"url\":{\"displayUrl\":\"https://netinfoplc.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"page.id\":\"1321861121\",\"macro.hash\":\"84d95ec8-b569-4b80-a3a1-a7e761a3e2c3\",\"page.type\":\"page\",\"macro.localId\":\"e05275f7-1cf9-4d53-8684-a69355181cec\",\"simple\":\"0\",\"inComment\":\"0\",\": = | RAW | = :\":\"zoom=1|simple=0|inComment=0|custContentId=1328545896|pageId=1321861121|lbox=1|diagramDisplayName=messaging|contentVer=4|hiResPreview=0|revision=4|baseUrl=https://netinfoplc.atlassian.net/wiki|diagramName=QUICKPAY|pCenter=1|width=811|links=auto|tbstyle=hidden|height=962\",\"space.id\":\"109281295\",\"diagramDisplayName\":\"messaging\",\"hiResPreview\":\"0\",\"diagramName\":\"QUICKPAY\",\"links\":\"auto\",\"tbstyle\":\"hidden\",\"user.isExternalCollaborator\":\"false\",\"height\":\"962\",\"space.key\":\"PNDV1\",\"content.version\":\"34\",\"page.title\":\"Quick Pay\",\"zoom\":\"1\",\"macro.body\":\"\",\"custContentId\":\"1328545896\",\"pageId\":\"1321861121\",\"macro.truncated\":\"false\",\"lbox\":\"1\",\"content.type\":\"page\",\"output.type\":\"html_export\",\"contentVer\":\"4\",\"page.version\":\"34\",\"revision\":\"4\",\"baseUrl\":\"https://netinfoplc.atlassian.net/wiki\",\"macro.fragmentLocalId\":\"\",\"pCenter\":\"1\",\"content.id\":\"1321861121\",\"width\":\"811\",\"macro.id\":\"84d95ec8-b569-4b80-a3a1-a7e761a3e2c3\",\"editor.version\":\"\\\"v2\\\"\"}",
+    "timeZone":"UTC",
+    "origin":"https://ac.draw.io",
+    "hostOrigin":"https://netinfoplc.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",    "pearApp":"true",        "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+</script>
+
+</div>
+<h2 id="QuickPay-EnablingtheQuickPayService"><span data-colorid="v3ita90ryx">Enabling the Quick Pay Service</span></h2><p>The figures below, &lsquo;UI/UX Enable Quick Pay Service&rsquo; pages, present the  end-user registration / un-registration process to the Quick Pay service. Referring to these, end-user:</p><ul><li><p>May select to view the Quick Pay&rsquo;s Terms and Conditions</p></li><li><p>Toggle the &lsquo;Quick Pay&rsquo; registration option:</p><ul><li><p> if Quick Pay is disabled, then by toggling to &lsquo;Enabled&rsquo; end-user:</p><ul><li><p>is prompted to confirm their intention of registering to the service, and</p></li><li><p>subsequently, is prompted to select the default Quick Pay account (this will be the default account for all inbound/outbound Quick Pay transfers)</p></li><li><p>may change the default account at any time</p></li></ul></li><li><p>If Quick Pay is enabled, then by toggling to &lsquo;disabled&rsquo; end-user is prompted to confirm action</p></li></ul></li></ul><p /></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1333755923.png" data-image-src="attachments/1321861121/1333755923.png" data-height="1093" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1333755923" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="settings page.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="fbc0aad2-9f8b-4789-8549-27491790e683" data-media-type="file" /></span></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1334804483.png" data-image-src="attachments/1321861121/1334804483.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1334804483" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="view terms and conditions.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="f195b37b-c642-4c29-8a4e-49938900e3fe" data-media-type="file" /></span></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1334083603.png" data-image-src="attachments/1321861121/1334083603.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1334083603" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="enable quick pay.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="aca4e36f-174e-412b-b1f5-e971737d7fab" data-media-type="file" /></span></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1332805674.png" data-image-src="attachments/1321861121/1332805674.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1332805674" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="select debit account.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="8851e8a5-2b92-4d17-acd1-e98744abc9a6" data-media-type="file" /></span></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1334640643.png" data-image-src="attachments/1321861121/1334640643.png" data-height="1136" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1334640643" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick pay enabled.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="dfa4fa31-0cbd-437b-988e-b9775ec4cf54" data-media-type="file" /></span></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1334444035.png" data-image-src="attachments/1321861121/1334444035.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1334444035" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="disable quick pay.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="0d812d17-3318-463a-baa9-d6c272f3cf35" data-media-type="file" /></span></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div id="expander-537544743" class="expand-container"><div id="expander-control-537544743" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-537544743" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="0cfd9dfa-5ad6-42c0-a429-c29146550c72" class="confluenceTable"><colgroup><col /><col style="width: 131.0px;" /><col style="width: 96.0px;" /><col style="width: 461.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Settings</p></td><td class="confluenceTd"><p>Page Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Quick Pay</p></td><td class="confluenceTd"><p>Toggle</p></td><td class="confluenceTd"><p>Enabled</p><p>Default: Toggle off</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Terms and Conditions</p></td><td class="confluenceTd"><p>Link</p></td><td class="confluenceTd"><p>Enabled</p></td></tr></tbody></table></div></div></div><div id="expander-1598291623" class="expand-container"><div id="expander-control-1598291623" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-1598291623" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="d90d273c-8c62-4efa-b488-9b9f99146479" class="confluenceTable"><colgroup><col style="width: 109.0px;" /><col style="width: 170.0px;" /><col style="width: 451.0px;" /></colgroup><tbody><tr><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Event</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Actions</p></th></tr><tr><td class="confluenceTd"><p>Quick Pay</p></td><td class="confluenceTd"><p>End-user selects to <strong>enable</strong> the Quick Pay service</p></td><td class="confluenceTd"><p>A modal appears with the following message: </p><p>'Enable Quick Pay</p><p>By enabling this service, you will be able to send and receive money using your contacts mobile phone numbers'</p><p>And the following buttons are available and enabled:</p><ul><li><p>Yes</p><ul><li><p>If selected, the end-user is redirected to the select account page</p></li><li><p>End-user must select the default account to be used in quick pay (this will be used for debit and credit purposes) from a list of eligible accounts</p></li><li><p>Once an account is selected, the service is enabled, and end-user is redirected to the settings page</p></li></ul></li><li><p>Cancel</p><ul><li><p>If selected, the service is not enabled, and end-user is redirected to the settings page</p></li></ul></li></ul></td></tr><tr><td class="confluenceTd"><p>Quick Pay</p></td><td class="confluenceTd"><p>End-user selects to <strong>disable</strong> the Quick Pay service</p></td><td class="confluenceTd"><p>A modal appears with the following message: </p><p>'Disable Quick Pay</p><p>Are you sure you wish to disable the Quick Pay service? You will not be able to receive or send money'</p><p>And the following buttons are available and enabled:</p><ul><li><p>Yes</p><ul><li><p>If selected, the service is disabled, and end-user is redirected to the settings page</p></li></ul></li><li><p>Cancel</p><ul><li><p>If selected, the service is not disabled, and end-user is redirected to the settings page</p></li></ul></li></ul></td></tr><tr><td class="confluenceTd"><p>Terms and Conditions</p></td><td class="confluenceTd"><p>End-user selects to view the Terms and Conditions</p></td><td class="confluenceTd"><p>The associated terms and conditions appear (these are not configurable). The end-user can exit the T&amp;Cs by selecting the 'x' button.</p></td></tr></tbody></table></div></div></div><h2 id="QuickPay-STEP1/2:Input"><span data-colorid="zkalbgbg5z">STEP 1/2: Input</span></h2><p>The figures below, &lsquo;UI/UX Quick Pay Transfer&rsquo; pages, present the process of initiating a quick pay transfer to a beneficiary that is registered to the quick pay service. Referring to these, end-user is prompted to complete the following mandatory information:</p><ul><li><p>Pay from Account (i.e. the debit account); end-user may select a debit account different than the default Quick Pay account </p></li><li><p>Beneficiary Phone Number: This can be defined in three ways:</p><ul><li><p>By manually entering the mobile number of the beneficiary</p></li><li><p>By selecting a beneficiary from their phone&rsquo;s contact list</p></li><li><p>By selecting a beneficiary from the &lsquo;Recent Recipients&rsquo; list</p></li></ul></li></ul><p style="margin-left: 30.0px;">No matter the method used for defining the beneficiary, system validates whether the assigned beneficiary is a registered Quick Pay end-user; if not, an exception message appears</p><p>Once all compulsory information have been entered, end-user proceeds to the next step by pressing the &lsquo;Next&rsquo; button. </p></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1333559400.png" data-image-src="attachments/1321861121/1333559400.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1333559400" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick pay transfer step 1.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="8aaf273b-73d8-4d4f-8f3c-6c49653b3a0a" data-media-type="file" /></span><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1334444047.png" data-image-src="attachments/1321861121/1334444047.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1334444047" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick pay transfer step 3.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="58c32077-b527-437e-9b30-3a2a54ab2507" data-media-type="file" /></span><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1333854245.png" data-image-src="attachments/1321861121/1333854245.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1333854245" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick pay transfer step 2.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="8cca648d-6d7e-497f-988c-14728f2c9d8e" data-media-type="file" /></span><p /></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1334083621.png" data-image-src="attachments/1321861121/1334083621.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1334083621" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick pay transfer step 4.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="e5bd2aef-9ddb-45b0-9ee0-32241de6ef3e" data-media-type="file" /></span><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1334181899.png" data-image-src="attachments/1321861121/1334181899.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1334181899" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick pay transfer step 5.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="44eb96cf-e874-4944-94d4-ec3daa008101" data-media-type="file" /></span><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1334378517.png" data-image-src="attachments/1321861121/1334378517.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1334378517" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick pay transfer step 6.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="fca089e8-eeb5-4e46-98a7-5911d55ee9c0" data-media-type="file" /></span><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div id="expander-875064327" class="expand-container"><div id="expander-control-875064327" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-875064327" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="2402bd5c-b666-42f3-9b65-7f554658bc18" class="confluenceTable"><colgroup><col /><col style="width: 131.0px;" /><col style="width: 96.0px;" /><col style="width: 461.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Make a Transfer</p></td><td class="confluenceTd"><p>Page Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Quick Pay</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>From Account</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled; default is the Quick Pay Account</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Select A Recipient</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>Phone Number</p></td><td class="confluenceTd"><p>Number / Phone Book icon</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Recent Recipients</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Last 4 recently used quick pay recipients</p><p>Full <span class="inline-comment-marker" data-ref="ffe706d8-0062-4048-98e9-d21e86148416">Name </span>of the Bank Customer the account found relates to is shown</p></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">8</td><td class="confluenceTd"><p>Next</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled under specific conditions: When all required fields have been completed</p></td></tr></tbody></table></div></div></div><div id="expander-663509629" class="expand-container"><div id="expander-control-663509629" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-663509629" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="c7206c6f-ae2f-43b1-a64c-2ab0d35ae284" class="confluenceTable"><colgroup><col style="width: 131.0px;" /><col style="width: 165.0px;" /><col style="width: 434.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td class="confluenceTd"><p>From Account</p></td><td class="confluenceTd"><p>End-user selects to choose a different From Account.</p></td><td class="confluenceTd"><p>End-user is redirected to the select account page.</p><p>End-user must select the account to be used in the specific Quick Pay transfer</p><p>Once an account is selected, the end-user is redirected to the make a transfer page</p></td></tr><tr><td class="confluenceTd"><p>Phone Number</p></td><td class="confluenceTd"><p>End-user adds manually a phone number and a valid quick pay account has been found.</p></td><td class="confluenceTd"><p>Next button is enabled for end-user selection</p></td></tr><tr><td class="confluenceTd"><p>Phone Number</p></td><td class="confluenceTd"><p>End-user selects the phone book icon.</p></td><td class="confluenceTd"><p>The end-users contact list appears so the end-user can select a contact from their phone book</p><p>IF a contact with valid quick pay account is selected, end-user is redirected to the make a transfer page</p><p>AND</p><p>Next button is enabled for end-user selection</p></td></tr><tr><td class="confluenceTd"><p>Recent Recipients</p></td><td class="confluenceTd"><p>End-user selects a recipient from the recent recipients list.</p></td><td class="confluenceTd"><p>Next button is enabled for end-user selection</p></td></tr><tr><td class="confluenceTd"><p>Phone Number</p></td><td class="confluenceTd"><p>Phone number (entered either manually OR through phones contact OR through recent recipients) does not belong to a registered Quick Pay user.</p></td><td class="confluenceTd"><p>Modal appears with the following message:</p><p>'Client Not Found</p><p>There is no Quick Pay account for this number.'</p><p>Okay button appears and is enabled - Once selected, the modal closes and the end-user can select a new recipient</p></td></tr><tr><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>End-user selects Cancel.</p></td><td class="confluenceTd"><p>End-user is redirected to Transfers and Payments page</p></td></tr><tr><td class="confluenceTd"><p>Next</p></td><td class="confluenceTd"><p>End-user selects Next but the phone number is incorrect</p></td><td class="confluenceTd"><p>Displays Error Message: &ldquo;Client Not Found&quot;</p></td></tr><tr><td class="confluenceTd"><p>Next</p></td><td class="confluenceTd"><p>End-user selects Next.</p></td><td class="confluenceTd"><p>End-user is redirected to step 3 of the process</p></td></tr></tbody></table></div></div></div><h2 id="QuickPay-STEP3:InputAmount"><span data-colorid="p3raq4gdym">STEP 3: Input Amount</span></h2><p>The figures below, &lsquo;UI/UX Quick Pay Transfer&rsquo; pages, presents the process that needs to be followed after the successful selection of the beneficiary; basically, end-user:</p><ul><li><p>Is displayed with the masked Account Number and Name of the Beneficiary </p></li><li><p>Must enter the Amount to be transferred</p></li><li><p>May optionally add a Description </p></li></ul><p>Once all compulsory information have been entered, end-user proceeds to the next step by pressing the &lsquo;Send&rsquo; button. </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1334214663.png" data-image-src="attachments/1321861121/1334214663.png" data-height="902" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1334214663" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick pay transfer step 7.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="2f2625fc-8593-45db-a3dc-c56ae0ddead3" data-media-type="file" /></span><div id="expander-1317123931" class="expand-container"><div id="expander-control-1317123931" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-1317123931" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="81ead92c-8ead-4e69-91ff-271fda78a207" class="confluenceTable"><colgroup><col /><col style="width: 131.0px;" /><col style="width: 96.0px;" /><col style="width: 461.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Make a Transfer</p></td><td class="confluenceTd"><p>Page Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Quick Pay</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>To Account</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only; displays the Account number and Name of the beneficiary in masked format</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Complete the transfer details</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>Amount</p></td><td class="confluenceTd"><p>Amount</p></td><td class="confluenceTd"><p>Type of input: Positive Amount, with a comma (,) thousand separator and dot (.) decimal point separator.</p><p>System does not <span class="inline-comment-marker" data-ref="5a80e029-5ad1-4ea3-a27d-b48cd4590598">allow </span>the entry of an invalid number (attribute of the design component).</p><p>Number touchpad of phone number appears.</p><p>3 digit currency is shown in read only format (base currency, no cross currency allowed)</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Description</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Alpha numeric, Maximum length: 35 characters.</p></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>Send</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled under specific conditions: End-user inputs all mandatory information</p></td></tr></tbody></table></div></div></div><div id="expander-1839469398" class="expand-container"><div id="expander-control-1839469398" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-1839469398" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="26339565-a6d3-480e-978f-efe78d3f6656" class="confluenceTable"><colgroup><col style="width: 109.0px;" /><col style="width: 170.0px;" /><col style="width: 451.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td class="confluenceTd"><p>Send</p></td><td class="confluenceTd"><p>Amount is &lt;= 0.</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;The amount must be greater than 0&rsquo;.</p></td></tr><tr><td class="confluenceTd"><p>Send</p></td><td class="confluenceTd"><p>Maximum Transaction Type Limit exceeded.</p></td><td class="confluenceTd"><p>Display Error Message: 'You have exceeded the maximum Transaction Type Limit &lt;Max. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Send</p></td><td class="confluenceTd"><p>Minimum Transaction Type Limit not met.</p></td><td class="confluenceTd"><p>Display Error Message: 'Transaction amount is below minimum allowed &lt;Min. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Send</p></td><td class="confluenceTd"><p>Daily Limits Checks (user, user-account, customer and account limits): Daily limits have been exceeded.</p></td><td class="confluenceTd"><p>Display Error Message: 'You have exceeded the maximum &lt;Type of Daily Limit&gt; &lt;Max. limit&gt;&lt;Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Send</p></td><td class="confluenceTd"><p>Credit Check: Amount in &lsquo;Pay From&rsquo; account currency is greater than available balance of the &lsquo;Pay From' account.</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;Insufficient Funds&rsquo;</p></td></tr><tr><td class="confluenceTd"><p>Send</p></td><td class="confluenceTd"><p>When all validations are successful.</p></td><td class="confluenceTd"><p>End-user is navigated to Step 4: Confirm.</p></td></tr></tbody></table></div></div></div><h2 id="QuickPay-Step4:Confirm"><span data-colorid="zeiqpjvvx4">Step 4: Confirm </span></h2><p>Referring to the screen below (UI/UX - Sample Confirm), end-user is displayed with all information relating to the transaction (information retrieved from Core System, such as available balances, is also displayed as required). End-user is prompted to either Confirm or Cancel the payment. [6],[5].</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1334018075.png" data-image-src="attachments/1321861121/1334018075.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1334018075" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick pay transfer step 8.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="010eaa43-9cad-410d-8622-cc4cc6f139a1" data-media-type="file" /></span><div id="expander-1242260832" class="expand-container"><div id="expander-control-1242260832" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-1242260832" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="188bf429-4256-4e52-b17c-af16c9eadc65" class="confluenceTable"><colgroup><col /><col style="width: 131.0px;" /><col style="width: 96.0px;" /><col style="width: 461.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Make a Transfer</p></td><td class="confluenceTd"><p>Page Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Quick Pay</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Please Confirm all the transfer details</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Transfer details</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Read Only</p><p>The following details are shown:</p><ul><li><p>Amount to be transferred</p></li><li><p>From Account</p></li><li><p>To</p></li><li><p>Description</p></li></ul></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Confirm</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>Get</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Visible if SCA enabled is SMS OTP / Email OTP / Hard Token</p></td></tr><tr><td class="numberingColumn confluenceTd">8</td><td class="confluenceTd"><p>One Time Password</p></td><td class="confluenceTd"><p>OTP</p></td><td class="confluenceTd"><p>Visible if SCA enabled is SMS OTP / Email OTP / Hard Token</p></td></tr><tr><td class="numberingColumn confluenceTd">9</td><td class="confluenceTd"><p>Push Notification</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Visible if SCA enabled is M-OTP App</p></td></tr><tr><td class="numberingColumn confluenceTd">10</td><td class="confluenceTd"><p>QR Code</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Visible if SCA enabled is M-OTP App</p></td></tr></tbody></table></div></div></div><div id="expander-532363197" class="expand-container"><div id="expander-control-532363197" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-532363197" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="d197c0aa-1ad6-4616-853e-a86feaaa0996" class="confluenceTable"><colgroup><col style="width: 119.0px;" /><col style="width: 188.0px;" /><col style="width: 423.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>End-user selects Cancel.</p></td><td class="confluenceTd"><p>End-user is navigated to Step 1: input</p></td></tr><tr><td class="confluenceTd"><p>Get</p></td><td class="confluenceTd"><p>End-user selects GET button.</p></td><td class="confluenceTd"><p>An OTP is generated and forwarded to end-user via the configured channel</p></td></tr><tr><td class="confluenceTd"><p>Push Notification</p></td><td class="confluenceTd"><p>End-user selects to authenticate themselves using Push Notification (if SCA is enabled and authentication method is 'M-OTP App').</p></td><td class="confluenceTd"><p>Push Notification with the following details of the transaction forwarded to end-user; if approved, then transaction is authorised to proceed (without the requirement of pressing Confirm) for further processing</p><ul><li><p>Transaction Type: [Transaction Type]</p></li><li><p>Date: [Date in DD/MM/YY]</p></li><li><p>Amount: [Amount &amp; CCY]</p></li><li><p>From Account (masked - only last four digits displayed)</p></li><li><p>To Account (masked &ndash; only last four digits are shown)</p></li></ul></td></tr><tr><td class="confluenceTd"><p>QR Code</p></td><td class="confluenceTd"><p>End-user selects to authenticate themselves using QR code (if SCA is enabled and authentication method is 'M-OTP App').</p></td><td class="confluenceTd"><p>End-user is prompted to scan a QR code (displayed on screen) and then enters an OTP (as provided by mobile OTP app); if approved then transaction is authorised to proceed for further processing without the requirement of pressing the Confirm button</p></td></tr><tr><td class="confluenceTd"><p>Confirm</p></td><td class="confluenceTd"><p>Invalid OTP code entered by end-user (if SCA is enabled and authentication method is not 'M-OTP App').</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;Invalid OTP&rsquo;</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>Maximum Transaction Type Limit exceeded.</p></td><td class="confluenceTd"><p>Display Error Message: 'You have exceeded the maximum Transaction Type Limit &lt;Max. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>Minimum Transaction Type Limit not met.</p></td><td class="confluenceTd"><p>Display Error Message: 'Transaction amount is below minimum allowed &lt;Min. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>Daily Limits Checks (user, user-account, customer and account limits): Daily limits have been exceeded.</p></td><td class="confluenceTd"><p>Display Error Message: 'You have exceeded the maximum &lt;Type of Daily Limit&gt; &lt;Max. limit&gt;&lt;Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>Credit Check: Amount in &lsquo;Pay From&rsquo; account currency is greater than available balance of the &lsquo;Pay From' account.</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;Insufficient Funds&rsquo;</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>All validations &amp; checks are successful, and transaction will be executed immediately.</p></td><td class="confluenceTd"><p>The following actions are taken by the system:</p><ul><li><p>The transaction is submitted to the Core System for further processing</p></li><li><p>The status changes to &lsquo;Submit&rsquo; (or &lsquo;Failed&rsquo; if something goes wrong) and then upon response from the Core System to &lsquo;Completed&rsquo; or &lsquo;Rejected&rsquo;</p></li><li><p>The transaction is registered to the &lsquo;Online Transaction Status&rsquo;</p></li><li><p>The relevant Quick Pay alert is forwarded to the end-user when transaction changes status to Failed or Completed or Rejected</p></li><li><p>The transaction is logged</p></li></ul></td></tr></tbody></table></div></div></div><h2 id="QuickPay-Step5:Complete"><span data-colorid="jyduo55ift">Step 5: Complete</span></h2><p>Referring to the screen below (UI/UX - Sample Complete), the end-user is displayed with the transaction status and the options to:</p><ul><li><p>View Transaction Status </p></li><li><p>View Transaction Details </p></li><li><p>Export Details </p></li><li><p>Repeat Transfer </p></li></ul><p>By pressing the &lsquo;Done&rsquo; button, end-user is redirected to the Transfers and Payments landing page </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1321861121/1333821496.png" data-image-src="attachments/1321861121/1333821496.png" data-height="844" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1333821496" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="quick pay transfer step 9.png" data-base-url="https://netinfoplc.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1321861121" data-linked-resource-container-version="34" data-media-id="cc3e518c-3ac4-4372-bce9-8c8038eddba7" data-media-type="file" /></span><div id="expander-828586984" class="expand-container"><div id="expander-control-828586984" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-828586984" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="1a03b59f-d908-4b8b-9243-905432689f73" class="confluenceTable"><colgroup><col /><col style="width: 137.0px;" /><col style="width: 132.0px;" /><col style="width: 419.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Transaction Status / Reference Number / Unique Transaction Number</p></td><td class="confluenceTd"><p>Text / Number</p></td><td class="confluenceTd"><p>Read Only</p><p>NETinfo DBP reference number for the transaction (UTN) and Transaction Number retrieved from Core System. </p><p>&nbsp;&nbsp;The possible Transaction Status are:</p><ul><li><p>Failed: Transaction has failed to be submitted to Core System for execution</p></li><li><p>Submitted: This is a transit state - transaction has been submitted to Core System but no valid response has been received</p></li><li><p>Pending Execution: Transaction has been submitted and Core System has responded; however processing by Core System has not completed (e.g. could be some kind of manual processing)</p></li><li><p>Completed: Transaction has been processed successfully by Core System</p></li><li><p>Rejected: Transaction has been rejected by Core System</p></li></ul></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>View Transaction Status</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>View Transaction Details</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Export Details</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>Repeat Transfer</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Done</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr></tbody></table></div></div></div><div id="expander-22217566" class="expand-container"><div id="expander-control-22217566" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-22217566" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="4bf3f241-9030-4aa2-bf6d-13c05f3215fd" class="confluenceTable"><colgroup><col style="width: 132.0px;" /><col style="width: 110.0px;" /><col style="width: 488.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td class="confluenceTd"><p>View Transaction Status</p></td><td class="confluenceTd"><p>End-user selects View Transaction Status.</p></td><td class="confluenceTd"><p>Pop up appears with transaction status.</p></td></tr><tr><td class="confluenceTd"><p>View Transaction Details</p></td><td class="confluenceTd"><p>End-user selects View Transaction Details.</p></td><td class="confluenceTd"><p>The transaction details as presented in the Confirm Page are displayed in pop up.</p></td></tr><tr><td class="confluenceTd"><p>Export Details</p></td><td class="confluenceTd"><p>End-user selects export details.</p></td><td class="confluenceTd"><p>The details can be exported in a PDF format.</p></td></tr><tr><td class="confluenceTd"><p>Repeat Transfer</p></td><td class="confluenceTd"><p>End-user selects Repeat Transfer.</p></td><td class="confluenceTd"><p>The end-user is redirected to step 1 of the quick pay transfer.</p></td></tr><tr><td class="confluenceTd"><p>Done</p></td><td class="confluenceTd"><p>End-user selects Done.</p></td><td class="confluenceTd"><p>End-user is navigated to the Landing Page.</p></td></tr></tbody></table></div></div></div></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1321861169.png">RemoteChequeDepositRequestStatusConfirm.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1321861172.png">RemoteChequeDepositRequestStatus.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1323270163">messaging</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1322975265.png">messaging.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1321861184.png">dynamic pages request.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1321861187.png">serviceRequestStatusConfirm.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1322876957.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1323270145.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1323040798.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1322811443.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1322942490.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1322811453.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1323171857.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1323204623.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1323139095.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328447568.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1321861178">messaging</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1321861181.png">messaging.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328087124.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328054306.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328709719.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327923363.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328676958.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328382063.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328218198.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327562879.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328152645.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328414777.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328807997.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327890585.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327759535.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328480318.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328152663.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327988843.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328513077.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328709729.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328119904.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327562897.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328414791.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328545860.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328152677.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328185451.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328087142.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328054328.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327759545.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328447586.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328218220.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328349227.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327759555.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328578618.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328775247.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328185473.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328578640.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327923385.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328152687.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327890599.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328513103.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328709747.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328349237.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328382085.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327923395.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328709757.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327726721.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328382099.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328283726.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328218238.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328676988.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328808023.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328676998.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327726739.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328316521.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328119918.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328414813.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328513121.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328709767.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327956049.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328709777.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328808033.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327825034.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328644204.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327726753.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327759581.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328382117.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328185491.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327825044.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328808043.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328742451.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328414827.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328382127.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328480348.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328283740.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328808053.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328742465.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328545886.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327988861.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327988871.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328808063.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328382145.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327956059.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328349259.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328054370.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1321861175.tmp">~messaging.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328087209">QUICKPAY</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328021614.png">QUICKPAY.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328316551.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327726763.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328447642.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327792277.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327825058.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328742479.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328414839.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327792290.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327988887.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328119944.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328218280.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327628446.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327759599.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327759608.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328218293.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328021592.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327956077.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328480372.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328545921.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328283756.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327792299.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328382159.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328087176.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328742496.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328447667.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328218306.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328414852.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328677024.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328250968.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327825075.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328677037.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328447676.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328021605.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327825088.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327562923.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328316580.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327923425.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328382176.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328152738.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328742505.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327661195.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328545942.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327726780.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327759621.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327988916.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327562932.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328119961.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335754767.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335001240">QUICKPAY</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335296101.png">QUICKPAY.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1333559392.png">more page.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1333755923.png">settings page.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334804483.png">view terms and conditions.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334083603.png">enable quick pay.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1332805674.png">select debit account.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334640643.png">quick pay enabled.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334509582.png">disable quick pay.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334444035.png">disable quick pay.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1333559400.png">quick pay transfer step 1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334444047.png">quick pay transfer step 3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1333854245.png">quick pay transfer step 2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334083621.png">quick pay transfer step 4.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334181899.png">quick pay transfer step 5.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334542358.png">quick pay transfer step 7.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334214663.png">quick pay transfer step 7.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334018075.png">quick pay transfer step 8.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1334378517.png">quick pay transfer step 6.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1333821496.png">quick pay transfer step 9.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335001216.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335165024.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335951368.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335951378.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1336082435.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1336082445.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335558165.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335001230.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335459869.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335820303.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1332805773.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335951388.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335689245">QUICKPAY</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335230547.png">QUICKPAY.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1335689235.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328578657.tmp">~QUICKPAY.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1327792266">QUICKPAY</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1321861121/1328152721.png">QUICKPAY.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 22, 11, 2024 08:18</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

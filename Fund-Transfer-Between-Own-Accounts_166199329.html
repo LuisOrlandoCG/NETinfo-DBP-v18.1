@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NETinfo DBP Version 18.1 : Fund Transfer Between Own Accounts</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">NETinfo DBP Version 18.1</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Fund-Transfers-and-Payments_112328727.html">Fund Transfers and Payments</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Fund-Transfers_177602561.html">Fund Transfers</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NETinfo DBP Version 18.1 : Fund Transfer Between Own Accounts
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> NETInfo Plc</span>, last modified by <span class='editor'> 1216-Mappoura Andrea</span> on 08, 11, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2"><style>[data-colorid=oxgzujw2mw]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=oxgzujw2mw]{color:#004eb3}[data-colorid=o16r905pvs]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=o16r905pvs]{color:#004eb3}[data-colorid=tt4xttxa1x]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=tt4xttxa1x]{color:#004eb3}[data-colorid=irbrdolmvc]{color:#4c9aff} html[data-color-mode=dark] [data-colorid=irbrdolmvc]{color:#004eb3}</style>
+<div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p>Fund transfer between own accounts enables the transfer of funds between the end-user&rsquo;s connected accounts. The payment instruction can be submitted (to the Core System) for execution in real time or at a future date or as a standing order. As with any other type of Fund Transfer, Transfer between Own Accounts conforms to the <a href="Fund-Transfers-Activity-Diagram_112263213.html" data-linked-resource-id="112263213" data-linked-resource-version="35" data-linked-resource-type="page">three step process</a> (i.e. submit, confirm, complete) and certain <a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/177012808/System+Configuration+for+Transfers+Between+Own+Accounts" rel="nofollow">configuration</a> needs to be done at the Administrator console for its use.</p><h2 id="FundTransferBetweenOwnAccounts-ProductMainFeatures/BusinessRequirements"> <span data-colorid="oxgzujw2mw"><span class="inline-comment-marker" data-ref="c2d05d95-fed0-4656-add3-b954fdf74b88">Product Main Features / Business Requirements</span></span></h2><ol start="1"><li><p>Eligible debit accounts are:</p><ol start="1"><li><p>Accounts that fall under a Bank Product that has been configured in NETinfo DBP to allow debits (from its accounts) for the particular transaction type</p></li><li><p>Accounts that end-user has Input privileges (for the particular transaction type) as defined in User Profile.</p></li><li><p>Accounts under the Customer selected by end-user from the &lsquo;Owner&rsquo; field.</p></li><li><p>Accounts of allowed currencies as defined in the Transaction Type Currencies</p></li></ol></li><li><p>Eligible credit accounts are:</p><ol start="1"><li><p>Accounts that fall under a Bank Product that has been configured in NETinfo DBP to allow credits (from its accounts) for the particular transaction type</p></li><li><p>Accounts that end-user has Input privileges (for the particular transaction type) as defined in User Profile.</p></li><li><p>Accounts under the Customer selected by end-user from the &lsquo;Owner&rsquo; field</p></li><li><p>Accounts of allowed currencies as defined in the Transaction Type Currencies</p></li></ol></li><li><p>Cross currency transfers are supported with the option to use a negotiated rate. In a cross currency transfer, the currencies of the Debit Account and Transfer Amount differ.  </p></li><li><p>The Transfer Amount&rsquo;s eligible currencies in same-currency (i.e. when Transfer Amount currency is the same as the Debit Account currency) and cross currency (i.e. when Transfer Amount currency is different than the Debit Account currency) transfers are configurable through the <a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/264077354/Transaction+Type+Currency" data-linked-resource-id="264077354" data-linked-resource-version="31" data-linked-resource-type="page">Transaction Type Currency</a> Admin page; the Transfer Amount currency is validated against the eligible currencies at Submit.</p></li><li><p>Signatures are supported (configurable).</p></li><li><p>Calculation of charges is supported (configurable)</p></li><li><p>SCA functionality is supported (configurable).</p></li><li><p>Daily limits at customer, account, user and user-account level can be enforced (configurable).</p></li><li><p>Minimum and Maximum Transaction Limits can be enforced (configurable).</p></li><li><p>Option to schedule the fund transfer for execution now or at a future date, or set as recurring <span class="inline-comment-marker" data-ref="505eb727-70aa-42bf-8afc-d5976e12a4d5">payment</span>. The NETinfo DBP has an embedded payment scheduler; if cannot be provided by Bank, this can be used for the scheduling of future payments and standing order. </p></li></ol></div>
+</div>
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<div class="table-wrap"><table data-layout="default" data-local-id="d735ea7c-5f97-44a0-87a0-3a1cc487e2fb" class="confluenceTable"><colgroup><col style="width: 232.0px;" /></colgroup><tbody><tr><th data-highlight-colour="#deebff" class="confluenceTh"><p><strong>On this page</strong></p></th></tr><tr><td class="confluenceTd"><style type="text/css">/*<![CDATA[*/
+div.rbtoc1732263409389 {padding: 0px;}
+div.rbtoc1732263409389 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1732263409389 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class="toc-macro rbtoc1732263409389">
+<ul class="toc-indentation">
+<li><a href="#FundTransferBetweenOwnAccounts-ProductMainFeatures/BusinessRequirements">Product Main Features / Business Requirements</a></li>
+<li><a href="#FundTransferBetweenOwnAccounts-Step1:Input">Step 1: Input</a></li>
+<li><a href="#FundTransferBetweenOwnAccounts-Step2:Confirm">Step 2: Confirm</a></li>
+<li><a href="#FundTransferBetweenOwnAccounts-Step3:Complete">Step 3: Complete</a></li>
+</ul>
+</div></td></tr><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p><strong><span class="inline-comment-marker" data-ref="dbede8a7-8509-412b-92cb-0543806ff3b0">Related Content</span></strong></p></td></tr><tr><td class="confluenceTd"><ul><li><p><a href="Fund-Transfers-Activity-Diagram_112263213.html" data-linked-resource-id="112263213" data-linked-resource-version="35" data-linked-resource-type="page">Fund Transfers Activity Diagram</a></p></li><li><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/177012808/System+Configuration+for+Transfers" rel="nofollow"><span class="inline-comment-marker" data-ref="dbede8a7-8509-412b-92cb-0543806ff3b0">System Configuration for Transfers</span></a></p></li><li><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/109346825/Abbreviations+Glossary" data-linked-resource-id="109346825" data-linked-resource-version="13" data-linked-resource-type="page">Abbreviations &amp; Glossary</a></p></li><li><p><a href="https://netinfoplc.atlassian.net/wiki/spaces/PNDV1/pages/109576218/Screen+Objects+Actions+-+Definitions" data-linked-resource-id="109576218" data-linked-resource-version="10" data-linked-resource-type="page">Screen Objects and Actions &ndash; Definitions</a></p></li><li><p><a href="Fund-Transfers-and-Payments_112328727.html" data-linked-resource-id="112328727" data-linked-resource-version="72" data-linked-resource-type="page">Fund Transfers and Payments</a></p></li></ul></td></tr></tbody></table></div></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h2 id="FundTransferBetweenOwnAccounts-Step1:Input"><span data-colorid="o16r905pvs">Step 1: Input</span></h2><p>The figures below (UI/UX - Immediate Execution of Payment, UI/UX - Future Payment &amp; UI/UX - Recurring Payment), presents the &lsquo;Fund Transfer between Own Accounts&rsquo; input page. Referring to this, end-user is prompted to complete the following mandatory information:</p><ul><li><p>From account (i.e. the debit account) </p></li><li><p>To account (i.e. the credit account) </p></li><li><p>Amount to be transferred and associated currency </p></li><li><p>Scheduling (i.e. immediate execution, execution at a future date, recurring execution/standing order); in case of future date, end-user is prompted to enter the &lsquo;Execution Date&rsquo; ('UI/UX Future Payment) while if the Repeated option is selected, end-user is prompted to define the parameters of the recurring payment i.e. Start Date, Final Payment Date or Number of Executions and Frequency (refer to &lsquo;UI/UX Recurring Payment&rsquo;)</p></li></ul><p>End-user can also add a description where it will appear on the transaction history of the &lsquo;Pay From&rsquo; Account and a description that will appear in the transaction history of the &lsquo;Pay To&rsquo; Account.</p><p>In case the transfer amount is in a currency different from the debit account&rsquo;s currency, then the option to use a negotiated rate is also available (end-user has to enter the associated &lsquo;code&rsquo;).</p><p>End-user proceeds to the next step by pressing the &lsquo;Submit&rsquo; button.</p><div id="expander-1450159401" class="expand-container"><div id="expander-control-1450159401" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">UI/UX - Immediate Execution of Payment</span></div><div id="expander-content-1450159401" class="expand-content"><div class="ap-container" id="ap-de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap1206310986238618691">
+
+  <div class="ap-content " id="embedded-de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap1206310986238618691" />
+  <script nonce="002f4e5e37455dec" class="ap-iframe-body-script">//<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"de.dl.confluence.plugin.imagemap.ImageMapPlugin",
+    "uniqueKey":"de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap1206310986238618691",
+    "key":"scroll-imagemap",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://scroll-imagemap.addons.k15t.com/2024-06-12-1530/view.html",
+        "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"\\\"v2\\\"\"},\"macro\":{\"outputType\":\"html_export\",\"hash\":\"a2d40b34-6e80-47ff-98eb-be4dad8d4071\",\"id\":\"a2d40b34-6e80-47ff-98eb-be4dad8d4071\"},\"content\":{\"type\":\"page\",\"version\":\"269\",\"id\":\"166199329\"},\"space\":{\"key\":\"PNDV1\",\"id\":\"109281295\"}},\"url\":{\"displayUrl\":\"https://netinfoplc.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"viewSize\":\"1050\",\"page.id\":\"166199329\",\"macro.hash\":\"a2d40b34-6e80-47ff-98eb-be4dad8d4071\",\"page.type\":\"page\",\"imgRelative\":\"TransferBetweenMyAccountsInput1.png\",\"macro.localId\":\"3970b47a-327a-4332-93a3-60664feba958\",\": = | RAW | = :\":\"viewSize=1050|imgWidth=2048|areasData={\\\"areas\\\":[{\\\"coords\\\":\\\"17.39,133.33,826.09,139.13\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"1: Title\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"843.48,111.59,65.22,143.48\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"2: Help\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"56.52,428.99,1960.87,130.43\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"3: Pay From\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"39.13,628.99,1978.26,126.09\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"4: To Account\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"8.7,907.25,830.43,121.74\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"5: Amount\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1756.52,911.59,252.17,143.48\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"6; Currency\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"21.74,1063.77,1013.04,173.91\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"8: From Description\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1017.39,1055.07,1004.35,182.61\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"9: To Description\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"21.74,1242.03,1995.65,139.13\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"10: Execute\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"856.52,1394.2,343.48,182.61\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"15: Submit\\\",\\\"linkTarget\\\":\\\"_blank\\\"}]}|imgRelative=TransferBetweenMyAccountsInput1.png|pageReferences=|imgHeight=1924|alwaysHighlight=false|dataModelVersion=3\",\"space.id\":\"109281295\",\"dataModelVersion\":\"3\",\"areasData\":\"{\\\"areas\\\":[{\\\"coords\\\":\\\"17.39,133.33,826.09,139.13\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"1: Title\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"843.48,111.59,65.22,143.48\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"2: Help\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"56.52,428.99,1960.87,130.43\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"3: Pay From\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"39.13,628.99,1978.26,126.09\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"4: To Account\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"8.7,907.25,830.43,121.74\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"5: Amount\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1756.52,911.59,252.17,143.48\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"6; Currency\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"21.74,1063.77,1013.04,173.91\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"8: From Description\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1017.39,1055.07,1004.35,182.61\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"9: To Description\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"21.74,1242.03,1995.65,139.13\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"10: Execute\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"856.52,1394.2,343.48,182.61\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"15: Submit\\\",\\\"linkTarget\\\":\\\"_blank\\\"}]}\",\"user.isExternalCollaborator\":\"false\",\"imgWidth\":\"2048\",\"space.key\":\"PNDV1\",\"content.version\":\"269\",\"page.title\":\"Fund Transfer Between Own Accounts\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"html_export\",\"page.version\":\"269\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"166199329\",\"pageReferences\":\"\",\"macro.id\":\"a2d40b34-6e80-47ff-98eb-be4dad8d4071\",\"imgHeight\":\"1924\",\"alwaysHighlight\":\"false\",\"editor.version\":\"\\\"v2\\\"\"}",
+    "timeZone":"UTC",
+    "origin":"https://scroll-imagemap.addons.k15t.com",
+    "hostOrigin":"https://netinfoplc.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",    "pearApp":"true",        "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+</script>
+
+</div>
+</div></div><div id="expander-1389033520" class="expand-container"><div id="expander-control-1389033520" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">UI/UX - Future Payment</span></div><div id="expander-content-1389033520" class="expand-content"><div class="ap-container" id="ap-de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap7849821830849429798">
+
+  <div class="ap-content " id="embedded-de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap7849821830849429798" />
+  <script nonce="002f4e5e37455dec" class="ap-iframe-body-script">//<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"de.dl.confluence.plugin.imagemap.ImageMapPlugin",
+    "uniqueKey":"de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap7849821830849429798",
+    "key":"scroll-imagemap",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://scroll-imagemap.addons.k15t.com/2024-06-12-1530/view.html",
+        "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"\\\"v2\\\"\"},\"macro\":{\"outputType\":\"html_export\",\"hash\":\"50fc9031-3ab0-4e8d-9c84-76749008df58\",\"id\":\"50fc9031-3ab0-4e8d-9c84-76749008df58\"},\"content\":{\"type\":\"page\",\"version\":\"269\",\"id\":\"166199329\"},\"space\":{\"key\":\"PNDV1\",\"id\":\"109281295\"}},\"url\":{\"displayUrl\":\"https://netinfoplc.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"viewSize\":\"1050\",\"page.id\":\"166199329\",\"macro.hash\":\"50fc9031-3ab0-4e8d-9c84-76749008df58\",\"page.type\":\"page\",\"imgRelative\":\"TransferBetweenMyAccountsInput2.png\",\"macro.localId\":\"e2b99ea4-ed48-4461-a5f1-48535ed81f47\",\": = | RAW | = :\":\"viewSize=1050|imgWidth=2048|areasData={\\\"areas\\\":[{\\\"coords\\\":\\\"8.7,1398.55,2013.04,134.78\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"11: Execution Date\\\",\\\"linkTarget\\\":\\\"_blank\\\"}]}|imgRelative=TransferBetweenMyAccountsInput2.png|pageReferences=|imgHeight=1924|alwaysHighlight=false|dataModelVersion=3\",\"space.id\":\"109281295\",\"dataModelVersion\":\"3\",\"areasData\":\"{\\\"areas\\\":[{\\\"coords\\\":\\\"8.7,1398.55,2013.04,134.78\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"11: Execution Date\\\",\\\"linkTarget\\\":\\\"_blank\\\"}]}\",\"user.isExternalCollaborator\":\"false\",\"imgWidth\":\"2048\",\"space.key\":\"PNDV1\",\"content.version\":\"269\",\"page.title\":\"Fund Transfer Between Own Accounts\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"html_export\",\"page.version\":\"269\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"166199329\",\"pageReferences\":\"\",\"macro.id\":\"50fc9031-3ab0-4e8d-9c84-76749008df58\",\"imgHeight\":\"1924\",\"alwaysHighlight\":\"false\",\"editor.version\":\"\\\"v2\\\"\"}",
+    "timeZone":"UTC",
+    "origin":"https://scroll-imagemap.addons.k15t.com",
+    "hostOrigin":"https://netinfoplc.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",    "pearApp":"true",        "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+</script>
+
+</div>
+</div></div><div id="expander-372559575" class="expand-container"><div id="expander-control-372559575" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">UI/UX - Recurring Payment</span></div><div id="expander-content-372559575" class="expand-content"><div class="ap-container" id="ap-de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap6801146856551314372">
+
+  <div class="ap-content " id="embedded-de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap6801146856551314372" />
+  <script nonce="002f4e5e37455dec" class="ap-iframe-body-script">//<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"de.dl.confluence.plugin.imagemap.ImageMapPlugin",
+    "uniqueKey":"de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap6801146856551314372",
+    "key":"scroll-imagemap",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://scroll-imagemap.addons.k15t.com/2024-06-12-1530/view.html",
+        "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"\\\"v2\\\"\"},\"macro\":{\"outputType\":\"html_export\",\"hash\":\"bf391204-3d18-4f76-bbac-c4b5ab87a278\",\"id\":\"bf391204-3d18-4f76-bbac-c4b5ab87a278\"},\"content\":{\"type\":\"page\",\"version\":\"269\",\"id\":\"166199329\"},\"space\":{\"key\":\"PNDV1\",\"id\":\"109281295\"}},\"url\":{\"displayUrl\":\"https://netinfoplc.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"viewSize\":\"3338\",\"page.id\":\"166199329\",\"macro.hash\":\"bf391204-3d18-4f76-bbac-c4b5ab87a278\",\"page.type\":\"page\",\"imgRelative\":\"recurring.png\",\"macro.localId\":\"13f1a62b-4d13-4af1-988a-0f0a54b55636\",\": = | RAW | = :\":\"viewSize=3338|makeResponsive=true|imgWidth=3338|areasData={\\\"areas\\\":[{\\\"coords\\\":\\\"1280,405,1353.33,106.67\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"3: Pay From\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1300,591.67,1373.33,133.33\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"4: Pay To\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1280,858.33,1320,120\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"5: Amount\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1253.33,1165,1393.33,146.67\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"10: Execute\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1240,1325,1406.67,133.33\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"13: Schedule\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1246.67,1458.33,686.67,166.67\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"14: Start Date\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1906.67,1478.33,746.67,133.33\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"16: Number of Executions\\\",\\\"linkTarget\\\":\\\"_blank\\\"}]}|imgRelative=recurring.png|pageReferences=|imgHeight=2832|alwaysHighlight=false|dataModelVersion=3\",\"space.id\":\"109281295\",\"dataModelVersion\":\"3\",\"areasData\":\"{\\\"areas\\\":[{\\\"coords\\\":\\\"1280,405,1353.33,106.67\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"3: Pay From\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1300,591.67,1373.33,133.33\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"4: Pay To\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1280,858.33,1320,120\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"5: Amount\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1253.33,1165,1393.33,146.67\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"10: Execute\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1240,1325,1406.67,133.33\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"13: Schedule\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1246.67,1458.33,686.67,166.67\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"14: Start Date\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1906.67,1478.33,746.67,133.33\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"16: Number of Executions\\\",\\\"linkTarget\\\":\\\"_blank\\\"}]}\",\"user.isExternalCollaborator\":\"false\",\"makeResponsive\":\"true\",\"imgWidth\":\"3338\",\"space.key\":\"PNDV1\",\"content.version\":\"269\",\"page.title\":\"Fund Transfer Between Own Accounts\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"html_export\",\"page.version\":\"269\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"166199329\",\"pageReferences\":\"\",\"macro.id\":\"bf391204-3d18-4f76-bbac-c4b5ab87a278\",\"imgHeight\":\"2832\",\"alwaysHighlight\":\"false\",\"editor.version\":\"\\\"v2\\\"\"}",
+    "timeZone":"UTC",
+    "origin":"https://scroll-imagemap.addons.k15t.com",
+    "hostOrigin":"https://netinfoplc.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",    "pearApp":"true",        "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+</script>
+
+</div>
+</div></div><div id="expander-1465464413" class="expand-container"><div id="expander-control-1465464413" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-1465464413" class="expand-content"><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon" /><div class="confluence-information-macro-body"><p>As per the &lsquo;three-step process&rsquo; defined in <a href="Fund-Transfers-Activity-Diagram_112263213.html" data-linked-resource-id="112263213" data-linked-resource-version="35" data-linked-resource-type="page">Activity Diagram</a>, end-user must first enter all required data to enable the successful initiation of a Fund Transfer between own accounts. The UI/UX, Screen objects &amp; associated triggered actions and required interfaces are defined in the sections that follow.</p></div></div><div class="table-wrap"><table data-layout="default" data-local-id="bc06c0df-3520-4440-8cee-7c83349e9073" class="confluenceTable"><colgroup><col /><col style="width: 142.0px;" /><col style="width: 97.0px;" /><col style="width: 449.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Transfer Between Own Accounts</p></td><td class="confluenceTd"><p>Page Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td data-highlight-colour="#deebff" colspan="3" class="confluenceTd"><p>'Account Information' section</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>From Account</p></td><td class="confluenceTd"><p>Drop-down</p></td><td class="confluenceTd"><p>Options: list of eligible debit accounts (refer to definition of &lsquo;eligible&rsquo; debit accounts)</p><p>Keyword search available.</p><p>The account alias (if available), otherwise the account number, available balance and associated currency are automatically displayed.</p><p>Order of display:</p><ul><li><p>Based on priority set by end-user (through &lsquo;Account Personalisation&rsquo; function)</p></li><li><p>Account Alias [if one has been specified]</p></li><li><p>Rest based on Ascending Account number order</p></li></ul></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>To Account</p></td><td class="confluenceTd"><p>Drop-down</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Options: list of eligible credit accounts (refer to definition of &lsquo;eligible&rsquo; credit accounts)</p><p>Keyword search available.</p><p>The account alias (if available), otherwise the account number, available balance and associated currency are automatically displayed. The account number selected in the &lsquo;From Account' field is disabled for selection.</p><p>&nbsp;Order of display:</p><ul><li><p>Based on priority set by end-user (through &lsquo;Account Personalisation&rsquo; function)</p></li><li><p>Account Alias [if one has been specified]</p></li><li><p>Rest based on Ascending Account number order</p></li></ul></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td data-highlight-colour="#deebff" colspan="3" class="confluenceTd"><p>'Transfer Details' section</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Amount</p></td><td class="confluenceTd"><p>Amount</p></td><td class="confluenceTd"><p>Type of input: Positive Amount, with a comma (,) thousand separator and dot (.) decimal point separator.</p><p>System does not allow the entry of an invalid number.</p></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>&lt;Currency&gt;</p></td><td class="confluenceTd"><p>Drop-down</p></td><td class="confluenceTd"><p>Options: Currency of the two accounts is shown in drop-down list.</p><p>The currency of the From Account displays as default.</p></td></tr><tr><td class="numberingColumn confluenceTd">8</td><td class="confluenceTd"><p>Negotiated Rate</p></td><td class="confluenceTd"><p>Text</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Optional</p><p>Type of input: Alphanumeric - no special characters allowed, Max. Chars: 35</p><p>Visible under specific conditions:</p><ul><li><p>If the &lsquo;From Account&rsquo; account currency is different from the &lsquo;Amount&rsquo; currency (as defined in the &lsquo;Currency&rsquo; field)</p></li><li><p>Execution &ndash; Now is selected</p></li></ul></td></tr><tr><td class="numberingColumn confluenceTd">9</td><td class="confluenceTd"><p>From Description</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Optional</p><p>Type of input: Alphanumeric - no special characters allowed, Max. Chars: 35</p></td></tr><tr><td class="numberingColumn confluenceTd">10</td><td class="confluenceTd"><p>To Description</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Optional</p><p>Type of input: Alphanumeric - no special characters allowed, Max. Chars: 35</p></td></tr><tr><td class="numberingColumn confluenceTd">11</td><td class="confluenceTd"><p>Execute</p></td><td class="confluenceTd"><p>Radio Button Group</p></td><td class="confluenceTd"><p>Options: Now, Later, Repeated</p><p>The &lsquo;Now&rsquo; option is always visible. Read only if:</p><ul><li><p>[&lsquo;maxFuturePaymentDate&rsquo;]=0</p></li></ul><p>AND</p><ul><li><p>['allowedTransfersSTO'] flag does NOT include &lsquo;own&rsquo;</p></li></ul><p>The &lsquo;Later&rsquo; option is visible:</p><ul><li><p>If [&lsquo;maxFuturePaymentDate&rsquo;]&gt;0</p></li></ul><p>The &lsquo;Repeated&rsquo; option is visible:</p><ul><li><p>If ['allowedTransfersSTO'] flag includes &lsquo;own&rsquo;</p></li></ul><p>Default: Now</p></td></tr><tr><td class="numberingColumn confluenceTd">12</td><td class="confluenceTd"><p>Execution Date</p></td><td class="confluenceTd"><p>Calendar</p></td><td class="confluenceTd"><p>Visible under specific conditions: Execution - &lsquo;Later&rsquo; option is selected</p><p>Default Value: [Current Date + 1]</p><p>End-user can select any date between [Current Date +1] and [maxFuturePaymentDate-1]</p></td></tr><tr><td class="numberingColumn confluenceTd">13</td><td class="confluenceTd"><p>Schedule</p></td><td class="confluenceTd"><p>Radio Button Group</p></td><td class="confluenceTd"><p>Visible under specific conditions: The &lsquo;Repeated&rsquo; option is selected in the 'Execute' field</p><p>Options:</p><ul><li><p>By Date [Default]</p></li><li><p>Number of Executions</p></li></ul></td></tr><tr><td class="numberingColumn confluenceTd">14</td><td class="confluenceTd"><p>Start Date</p></td><td class="confluenceTd"><p>Calendar</p></td><td class="confluenceTd"><p>Visible under specific conditions: Execution &ndash; Repeated is selected </p><p>Default Value: [Current Date + 1]</p><p>End-user can select any date on or after [Current Date +1]</p></td></tr><tr><td class="numberingColumn confluenceTd">15</td><td class="confluenceTd"><p>Final Payment Date</p></td><td class="confluenceTd"><p>Calendar</p></td><td class="confluenceTd"><p>Visible under specific conditions: &lsquo;Repeated&rsquo; AND &lsquo;By Date' are selected in the &lsquo;Execute&rsquo; and 'Schedule&rsquo; fields respectively</p><p>Optional</p><p>End-user can select any date on or after [Start Date]</p><p>If no Final Payment Date is specified, then recurring payment executes indefinitely</p></td></tr><tr><td class="numberingColumn confluenceTd">16</td><td class="confluenceTd"><p>Number of Executions</p></td><td class="confluenceTd"><p>Text</p></td><td class="confluenceTd"><p>Visible under specific conditions: &lsquo;Repeated&rsquo; AND &lsquo;Number of Executions' are selected in the &lsquo;Execute&rsquo; and 'Schedule&rsquo; fields respectively</p><p>If visible, then required.</p><p>Type of input: Numeric with a comma (,) thousand separator, Max Chars: 3</p><p>Constrained by the Maximum number of future days allowed in the field 'maxFuturePaymentDate' in System Properties</p></td></tr><tr><td class="numberingColumn confluenceTd">17</td><td class="confluenceTd"><p>Frequency</p></td><td class="confluenceTd"><p>Drop-down</p></td><td class="confluenceTd"><p>Visible under specific conditions: Execution &ndash; Repeated is selected</p><p>&nbsp;If visible, then required.</p><p>&nbsp;Options: daily, weekly, monthly, quarterly, half yearly, yearly</p></td></tr><tr><td class="numberingColumn confluenceTd">18</td><td data-highlight-colour="#deebff" colspan="3" class="confluenceTd"><p>Action &amp; Disclaimer</p></td></tr><tr><td class="numberingColumn confluenceTd">19</td><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">20</td><td class="confluenceTd"><p>&lt;Disclaimer&gt;</p></td><td class="confluenceTd"><p>Disclaimer</p></td><td class="confluenceTd"><p>Read Only</p><p>Visible under specific conditions: 'Input Page Disclaimer&rsquo; has been configured.</p><p>Displays the disclaimer configured for the respective input page.</p></td></tr></tbody></table></div><p /></div></div><div id="expander-1797701118" class="expand-container"><div id="expander-control-1797701118" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-1797701118" class="expand-content"><p>Table below depicts the major screen actions and system events taking place at input stage.</p><div class="table-wrap"><table data-layout="default" data-local-id="3f595ee5-ddfc-45f8-bb14-bf809644a349" class="confluenceTable"><colgroup><col style="width: 111.0px;" /><col style="width: 169.0px;" /><col style="width: 450.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>From Account</p></td><td class="confluenceTd"><p>Account selected.</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>The account number selected in the &lsquo;From Account&rsquo; field is disabled for selection from the &lsquo;To Account&rsquo; drop-down list.</p></td></tr><tr><td class="confluenceTd"><p>Execute</p></td><td class="confluenceTd"><p>Later option is selected.</p></td><td class="confluenceTd"><p>The Execution Date becomes visible.</p></td></tr><tr><td class="confluenceTd"><p>Execute</p></td><td class="confluenceTd"><p>Repeated option is selected (if the ['allowedTransfersSTO'] flag includes &lsquo;own&rsquo;)</p></td><td class="confluenceTd"><p>The following fields become visible:</p><ul><li><p>Schedule</p></li><li><p>Start Date</p></li><li><p>Final Payment Date</p></li><li><p>Frequency</p></li></ul></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>A Required (compulsory) field has not been entered.</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;&lt;Field Name&gt;: Value is required.&rsquo;</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>An alphanumeric field contains special characters.</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;&lt;Field Name&gt;: Please insert letters and numbers only&rsquo;.</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Unsuccessful Maximum Field Size validations for the following:</p><ul><li><p>From Description</p></li><li><p>To Description</p></li></ul></td><td class="confluenceTd"><p>Display Error Message: &lsquo;&lt;Field Name&gt;: Value is greater than allowable maximum of &lsquo;YY&rsquo;.</p><p>Where YY is maximum field size</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Final Payment Date is before Start Date.</p></td><td class="confluenceTd"><p>Message displayed:&rsquo; &lt;Field Name&gt; Please enter a valid date.'</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Constraint on Final Payment Date that depends on Frequency is not met (e.g. if weekly then minimum final payment date = Start Date + 7 - 1)</p></td><td class="confluenceTd"><p>Display Error Message: &rsquo;Final Payment Date cannot be before: [Start Date + Frequency - 1]'</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Amount is &lt;= 0.</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;The amount must be greater than 0&rsquo;.</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Transfer Currency is not within the list of allowed Currencies.</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;Transfer currency not allowed&rsquo;.</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Transaction is a cross currency transaction and transfer Currency is included in the list of allowed currencies, but is NOT included in the list of allowed cross currencies</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;Cross Currency not allowed.'</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Negotiated Rate Code is not correct/valid because of wrong code entered or mismatch in any of the following parameters linked to the code:</p><ol start="1"><li><p>End-user entering the code</p></li><li><p>Source Account</p></li><li><p>Transfer Type</p></li><li><p>Transfer Amount</p></li><li><p>Destination Currency</p></li><li><p>Expiration Date</p></li></ol></td><td class="confluenceTd"><p>IF mismatch in Transfer Amount THEN</p><p>Display Error Message: &lsquo;Invalid Negotiated Rate amount&rsquo;</p><p>ELSE (for all other cases)</p><p>Display Error Message: &lsquo;Invalid Negotiated Rate Code&rsquo;</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Currency Conversion required.</p></td><td class="confluenceTd"><p>Currency conversions from foreign currency to base currency (required for certain Limit checks) are done using the &lsquo;BUY&rsquo; rate or the negotiated rate if applicable.</p><p>Currency conversions from base currency to debit account currency (might be required for Credit Check and account related limits) are done using the &lsquo;SELL&rsquo; rate or the negotiated rate if applicable.</p><p>In case of foreign currency to foreign currency conversion, then two currency conversions take place:</p><ol start="1"><li><p>From &lsquo;From Account&rsquo; currency to base currency</p></li><li><p>From base currency to transfer 'Amount&rsquo; currency </p></li></ol></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Calculation of Charges.</p></td><td class="confluenceTd"><p>Charges are calculated if/as required based on the associated configuration in Admin console</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Maximum Transaction Type Limit exceeded.</p></td><td class="confluenceTd"><p>Display Error Message: 'You have exceeded the maximum Transaction Type Limit &lt;Max. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Minimum Transaction Type Limit not met.</p></td><td class="confluenceTd"><p>Display Error Message: 'Transaction amount is below minimum allowed &lt;Min. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>Daily Limits Checks (user, user-account, customer and account limits): Daily limits have been exceeded and the transaction will be executed immediately  (i.e. no approval workflows exist, and the execute &lsquo;NOW&rsquo; option has been selected).</p></td><td class="confluenceTd"><p>Display Error Message: 'You have exceeded the maximum &lt;Type of Daily Limit&gt; &lt;Max. limit&gt;&lt;Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Credit Check: Amount in &lsquo;From Account&rsquo; account currency is greater than available balance of the &lsquo;From Account' account AND the transaction will be executed immediately (i.e. no approval workflows exist, and the execute &lsquo;NOW&rsquo; option has been selected).</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;Insufficient Funds&rsquo;</p></td></tr><tr><td class="confluenceTd"><p>Submit</p></td><td class="confluenceTd"><p>When all validations are successful.</p></td><td class="confluenceTd"><p>End-user is navigated to Step 2: Confirm.</p></td></tr></tbody></table></div></div></div><h2 id="FundTransferBetweenOwnAccounts-Step2:Confirm"><span data-colorid="tt4xttxa1x">Step 2: Confirm</span></h2><p>Referring to the screen below (UI/UX - Step 2: Confirm), end-user is displayed with all information relating to the transaction (information retrieved from Core System, such as available balances, is also displayed as required). End-user is prompted to either Confirm or Cancel the payment. If SCA configuration is enabled for the transfer, a modal appears displaying the information required depending on the method of SCA selected.</p><div id="expander-1707226202" class="expand-container"><div id="expander-control-1707226202" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">UI/UX - Step 2: Confirm</span></div><div id="expander-content-1707226202" class="expand-content"><div class="ap-container" id="ap-de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap2993697901894769498">
+
+  <div class="ap-content " id="embedded-de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap2993697901894769498" />
+  <script nonce="002f4e5e37455dec" class="ap-iframe-body-script">//<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"de.dl.confluence.plugin.imagemap.ImageMapPlugin",
+    "uniqueKey":"de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap2993697901894769498",
+    "key":"scroll-imagemap",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://scroll-imagemap.addons.k15t.com/2024-06-12-1530/view.html",
+        "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"\\\"v2\\\"\"},\"macro\":{\"outputType\":\"html_export\",\"hash\":\"5c28a997-8d89-4bf2-be64-22de72d1da1f\",\"id\":\"5c28a997-8d89-4bf2-be64-22de72d1da1f\"},\"content\":{\"type\":\"page\",\"version\":\"269\",\"id\":\"166199329\"},\"space\":{\"key\":\"PNDV1\",\"id\":\"109281295\"}},\"url\":{\"displayUrl\":\"https://netinfoplc.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"viewSize\":\"1050\",\"page.id\":\"166199329\",\"macro.hash\":\"5c28a997-8d89-4bf2-be64-22de72d1da1f\",\"page.type\":\"page\",\"imgRelative\":\"TransferBetweenMyAccountsConfirm2.png\",\"macro.localId\":\"38bad0b4-e98b-4f52-a5a9-de3821a40ee5\",\": = | RAW | = :\":\"viewSize=1050|makeResponsive=false|imgWidth=2048|areasData={\\\"areas\\\":[{\\\"coords\\\":\\\"8,142,834,108\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"1: Title\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"817,128,104,134\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"2: Help\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"747,315,595,282\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"3: Confirmation\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"800,685,469,117\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"4: Amount to be paid\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"686,824,691,639\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"5: Transfer Details\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"695,1533,321,108\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"6: Cancel\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1034,1524,330,139\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"7: Confirm\\\",\\\"linkTarget\\\":\\\"_blank\\\"}]}|imgRelative=TransferBetweenMyAccountsConfirm2.png|pageReferences=|imgHeight=1924|alwaysHighlight=false|dataModelVersion=3\",\"space.id\":\"109281295\",\"dataModelVersion\":\"3\",\"areasData\":\"{\\\"areas\\\":[{\\\"coords\\\":\\\"8,142,834,108\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"1: Title\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"817,128,104,134\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"2: Help\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"747,315,595,282\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"3: Confirmation\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"800,685,469,117\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"4: Amount to be paid\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"686,824,691,639\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"5: Transfer Details\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"695,1533,321,108\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"6: Cancel\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1034,1524,330,139\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"7: Confirm\\\",\\\"linkTarget\\\":\\\"_blank\\\"}]}\",\"user.isExternalCollaborator\":\"false\",\"makeResponsive\":\"false\",\"imgWidth\":\"2048\",\"space.key\":\"PNDV1\",\"content.version\":\"269\",\"page.title\":\"Fund Transfer Between Own Accounts\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"html_export\",\"page.version\":\"269\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"166199329\",\"pageReferences\":\"\",\"macro.id\":\"5c28a997-8d89-4bf2-be64-22de72d1da1f\",\"imgHeight\":\"1924\",\"alwaysHighlight\":\"false\",\"editor.version\":\"\\\"v2\\\"\"}",
+    "timeZone":"UTC",
+    "origin":"https://scroll-imagemap.addons.k15t.com",
+    "hostOrigin":"https://netinfoplc.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",    "pearApp":"true",        "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+</script>
+
+</div>
+</div></div><div id="expander-662033450" class="expand-container"><div id="expander-control-662033450" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-662033450" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="09e55ed7-11e0-42c5-8337-2d391f8fd4b3" class="confluenceTable"><colgroup><col /><col style="width: 128.0px;" /><col style="width: 69.0px;" /><col style="width: 491.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Transfer Between Own Accounts</p></td><td class="confluenceTd"><p>Page Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Confirmation</p></td><td class="confluenceTd"><p>Sub-title</p></td><td class="confluenceTd"><p>Read Only</p><p>Text: &ldquo;Please confirm all transfer details&rdquo;</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Amount To Be Paid</p></td><td class="confluenceTd"><p>Amount</p></td><td class="confluenceTd"><p>Read Only</p><p>Data: [Amount to be paid + Currency]: This is the &lsquo;Amount + Currency&rsquo; entered by end-user in Input Page</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>&lt;Confirmation of Transfer Between Own Accounts&gt;</p></td><td class="confluenceTd"><p>Table</p></td><td class="confluenceTd"><p>Read Only</p><p>The following information (fields and values), as input by end-user in previous page or calculated/provided by system (as available), is displayed; if for a field no value has been entered by end-user (in &lsquo;input page&rsquo;), then the text '-' is displayed as value.</p><ol start="1"><li><p>From Account: [Alias] or [Account Number] if no Alias</p></li><li><p>To Account:  [Alias] or [Account Number] if no Alias</p></li><li><p>From Description: [From Description]</p></li><li><p>To Description: [To Description]</p></li><li><p>Execution Date:  [Execution Date] - Displayed If &lsquo;Now&rsquo; or  &lsquo;Later&rsquo; option is selected</p></li><li><p>Start Date: [Start Date] - Displayed if &lsquo;Repeated&rsquo; option is selected</p></li><li><p>Final Payment Date: [Final Payment Date OR Calculated value if &lsquo;Number of Executions&rsquo;] - Displayed if &lsquo;Repeated&rsquo; is selected</p></li><li><p>Number of Executions:  [Number of Executions] - Displayed if &lsquo;Repeated&rsquo; &amp; 'Number of Executions' is selected</p></li><li><p>Frequency: [Frequency] - Displayed if &lsquo;Repeated&rsquo; is selected</p></li><li><p>Exchange Rate: [Actual Exchange Currency rate to be used] retrieved from Core System (or NETinfo DBP in case of negotiated rate) - Displayed in case of cross currency transaction</p></li><li><p>Exchange Rate Valid From: [Negotiated rate 'From' Timestamp] - retrieved from NETinfo DBP and displayed in case of Negotiated Rate</p></li><li><p>Exchange Rate Valid To: [Negotiated rate 'To' Timestamp] - retrieved from NETinfo DBP and displayed in case of Negotiated Rate</p></li><li><p>Debit Amount: [Amount &amp; CCY to be debited] as retrieved from Core System (or NETinfo DBP in case of negotiated rate)</p></li><li><p>Charges: [Charges - Amount &amp; CCY] as retrieved from Core System</p></li></ol><p>Note: Exchange Rate, Exchange Rate Valid From/To, Debit Amount &amp; Charges are not displayed when recurring payment, when later execution and when the transaction is pending authorisation</p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Confirm</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>&lt;Disclaimer&gt;</p></td><td class="confluenceTd"><p>Disclaimer</p></td><td class="confluenceTd"><p>Read Only</p><p>Visible under specific conditions: 'Confirm Page Disclaimer&rsquo; has been configured.</p><p>Displays the disclaimer configured for the respective confirm page.</p></td></tr></tbody></table></div></div></div><div id="expander-1150534414" class="expand-container"><div id="expander-control-1150534414" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-1150534414" class="expand-content"><p>Table below depicts the major screen actions and system events taking place at Confirm Stage (note: field and data validations at submit are repeated during Confirm - these have not been included in the table below for simplicity)</p><div class="table-wrap"><table data-layout="default" data-local-id="0501c44f-b72d-4a90-bca8-ba5073800a14" class="confluenceTable"><colgroup><col style="width: 115.0px;" /><col style="width: 262.0px;" /><col style="width: 353.0px;" /></colgroup><tbody><tr><td data-highlight-colour="#deebff" class="confluenceTd"><p>Object</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Event</p></td><td data-highlight-colour="#deebff" class="confluenceTd"><p>Actions</p></td></tr><tr><td class="confluenceTd"><p>Cancel</p></td><td class="confluenceTd"><p>End-user selects Cancel.</p></td><td class="confluenceTd"><p>End-user is navigated to Step 1: input</p></td></tr><tr><td class="confluenceTd"><p>Confirm and SCA enabled</p></td><td class="confluenceTd"><p>End-user selects Confirm and SCA enabled.</p></td><td class="confluenceTd"><p>A modal appears requesting SCA authentication depending on the configured SCA method. Refer to the SCA document</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>Maximum Transaction Type Limit exceeded.</p></td><td class="confluenceTd"><p>Display Error Message: 'You have exceeded the maximum Transaction Type Limit &lt;Max. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>Minimum Transaction Type Limit not met.</p></td><td class="confluenceTd"><p>Display Error Message: 'Transaction amount is below minimum allowed &lt;Min. TX type limit&gt;&lt;Base Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>Daily Limits Checks (user, user-account, customer and account limits): Daily limits have been exceeded and the transaction will be executed immediately  (i.e. no approval workflows exist, and the execute &lsquo;NOW&rsquo; option has been selected).</p></td><td class="confluenceTd"><p>Display Error Message: 'You have exceeded the maximum &lt;Type of Daily Limit&gt; &lt;Max. limit&gt;&lt;Currency&gt;.</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Credit Check: Amount in &lsquo;From Account&rsquo; account currency is greater than available balance of the &lsquo;From Account' account AND the transaction will be executed immediately (i.e. no approval workflows exist, and the execute &lsquo;NOW&rsquo; option has been selected).</p></td><td class="confluenceTd"><p>Display Error Message: &lsquo;Insufficient Funds&rsquo;</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>Negotiated Rate Code has expired.</p></td><td class="confluenceTd"><p>Message displayed:&rsquo; &lsquo;Invalid Negotiated Rate Code.'</p></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>All validations &amp; checks are successful, and end-user approvals are associated with the transaction.</p></td><td class="confluenceTd"><p>The following actions are taken by the system:</p><ul><li><p>The transaction changes status to &lsquo;Pending for Authorisation&rsquo;</p></li><li><p>The transaction is registered to the &lsquo;Pending Authorisation&rsquo; page</p></li><li><p>The transaction is registered to the &lsquo;Online Transaction Status&rsquo; page</p></li><li><p>A &lsquo;Pending for Authorisation&rsquo; alert is forwarded to the approvers</p></li><li><p>The &lsquo;Transfer Between Own Accounts&rsquo; alert is forwarded to the inputter</p></li><li><p>The transaction is logged</p></li></ul></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>All validations &amp; checks are successful, and transaction has been scheduled for execution at a future date.</p></td><td class="confluenceTd"><p>The following actions are taken by the system:</p><ul><li><p>The transaction changes status to &lsquo;Pending&rsquo;</p></li><li><p>The &lsquo;Transfer Between Own Accounts&rsquo; alert is forwarded to inputter</p></li><li><p>The transaction is registered to the &lsquo;Online Transaction Status&rsquo; page</p></li><li><p>The transaction is logged</p></li></ul></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>All validations &amp; checks are successful, and transaction has been scheduled as a  Recurring Payment (Standing Order).</p></td><td class="confluenceTd"><p>The following actions are taken by the system:</p><ul><li><p>The Standing Order is created and handled by the Standing Orders module thereafter</p></li><li><p>The transaction appears in the &lsquo;Online Transaction Status&rsquo; page</p></li><li><p>The &lsquo;New Standing Order&rsquo; alert is forwarded to the inputter</p></li><li><p>The transaction is logged</p></li></ul></td></tr><tr><td class="confluenceTd"><p>Confirm and/or Successful SCA</p></td><td class="confluenceTd"><p>All validations &amp; checks are successful, and transaction will be executed immediately.</p></td><td class="confluenceTd"><p>The following actions are taken by the system:</p><ul><li><p>The transaction is submitted to the Core System for further processing</p></li><li><p>The status changes to &lsquo;Submit&rsquo; (or &lsquo;Failed&rsquo; if something goes wrong) and then upon response from the Core System to &lsquo;Completed&rsquo; or &lsquo;Rejected&rsquo;</p></li><li><p>The transaction is registered to the &lsquo;Online Transaction Status&rsquo;</p></li><li><p>The relevant Fund Transfer alert is forwarded to the end-user when transaction changes status to Failed or Completed or Rejected</p></li><li><p>The transaction is logged</p></li></ul></td></tr></tbody></table></div></div></div><h2 id="FundTransferBetweenOwnAccounts-Step3:Complete"><span data-colorid="irbrdolmvc">Step 3: Complete</span></h2><p>Referring to the screen below (UI/UX - Step 3: Complete), the end-user is displayed with the transaction status and the options to:</p><ul><li><p>Export the TX details in PDF</p></li><li><p>View Details</p></li><li><p>Initiate a new transfer</p></li></ul><p>By pressing the &lsquo;Done&rsquo; button, end-user is redirected to the Transfers and Payments landing page</p><div id="expander-504314988" class="expand-container"><div id="expander-control-504314988" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">UI/UX - Step 3: complete</span></div><div id="expander-content-504314988" class="expand-content"><div class="ap-container" id="ap-de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap2492551009995724570">
+
+  <div class="ap-content " id="embedded-de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap2492551009995724570" />
+  <script nonce="002f4e5e37455dec" class="ap-iframe-body-script">//<![CDATA[
+
+  (function(){
+    var data = {
+    "addon_key":"de.dl.confluence.plugin.imagemap.ImageMapPlugin",
+    "uniqueKey":"de.dl.confluence.plugin.imagemap.ImageMapPlugin__scroll-imagemap2492551009995724570",
+    "key":"scroll-imagemap",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://scroll-imagemap.addons.k15t.com/2024-06-12-1530/view.html",
+        "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"\\\"v2\\\"\"},\"macro\":{\"outputType\":\"html_export\",\"hash\":\"b7844f5d-36d9-492e-9f7c-7474fec4098e\",\"id\":\"b7844f5d-36d9-492e-9f7c-7474fec4098e\"},\"content\":{\"type\":\"page\",\"version\":\"269\",\"id\":\"166199329\"},\"space\":{\"key\":\"PNDV1\",\"id\":\"109281295\"}},\"url\":{\"displayUrl\":\"https://netinfoplc.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"viewSize\":\"1050\",\"page.id\":\"166199329\",\"macro.hash\":\"b7844f5d-36d9-492e-9f7c-7474fec4098e\",\"page.type\":\"page\",\"imgRelative\":\"TransferBetweenMyAccountsComplete2.png\",\"macro.localId\":\"5b4c7936-e4c4-4795-a429-9a05329a26fb\",\": = | RAW | = :\":\"viewSize=1050|imgWidth=2048|areasData={\\\"areas\\\":[{\\\"coords\\\":\\\"17.39,128.99,817.39,121.74\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"1: Title\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"826.09,115.94,104.35,139.13\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"2: Help\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"421.74,420.29,1204.35,139.13\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"3: Transaction Status / UTN / Transaction Number\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"839.13,533.33,378.26,78.26\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"4: Go to Online Activity\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"439.13,628.99,178.26,304.35\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"5: Export Details\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"921.74,620.29,200,304.35\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"6: View Details\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1408.7,663.77,217.39,252.17\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"7: New Transfer\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"873.91,968.12,291.3,117.39\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"8: Done\\\",\\\"linkTarget\\\":\\\"_blank\\\"}]}|imgRelative=TransferBetweenMyAccountsComplete2.png|pageReferences=|imgHeight=1924|alwaysHighlight=false|dataModelVersion=3\",\"space.id\":\"109281295\",\"dataModelVersion\":\"3\",\"areasData\":\"{\\\"areas\\\":[{\\\"coords\\\":\\\"17.39,128.99,817.39,121.74\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"1: Title\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"826.09,115.94,104.35,139.13\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"2: Help\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"421.74,420.29,1204.35,139.13\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"3: Transaction Status / UTN / Transaction Number\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"839.13,533.33,378.26,78.26\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"4: Go to Online Activity\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"439.13,628.99,178.26,304.35\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"5: Export Details\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"921.74,620.29,200,304.35\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"6: View Details\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"1408.7,663.77,217.39,252.17\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"7: New Transfer\\\",\\\"linkTarget\\\":\\\"_blank\\\"},{\\\"coords\\\":\\\"873.91,968.12,291.3,117.39\\\",\\\"shapeType\\\":\\\"rect\\\",\\\"title\\\":\\\"8: Done\\\",\\\"linkTarget\\\":\\\"_blank\\\"}]}\",\"user.isExternalCollaborator\":\"false\",\"imgWidth\":\"2048\",\"space.key\":\"PNDV1\",\"content.version\":\"269\",\"page.title\":\"Fund Transfer Between Own Accounts\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"content.type\":\"page\",\"output.type\":\"html_export\",\"page.version\":\"269\",\"macro.fragmentLocalId\":\"\",\"content.id\":\"166199329\",\"pageReferences\":\"\",\"macro.id\":\"b7844f5d-36d9-492e-9f7c-7474fec4098e\",\"imgHeight\":\"1924\",\"alwaysHighlight\":\"false\",\"editor.version\":\"\\\"v2\\\"\"}",
+    "timeZone":"UTC",
+    "origin":"https://scroll-imagemap.addons.k15t.com",
+    "hostOrigin":"https://netinfoplc.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",    "pearApp":"true",        "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+
+//]]>
+</script>
+
+</div>
+</div></div><div id="expander-149508958" class="expand-container"><div id="expander-control-149508958" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Detailed Description of Screen Objects</span></div><div id="expander-content-149508958" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="de590254-681a-42bb-ac82-0b6a113655a2" class="confluenceTable"><colgroup><col /><col style="width: 146.0px;" /><col style="width: 129.0px;" /><col style="width: 413.0px;" /></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Type</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Other Attributes</p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Transfer Between Own Accounts</p></td><td class="confluenceTd"><p>Page Title</p></td><td class="confluenceTd"><p>Read Only</p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>Transaction Status / Reference Number / UTN</p></td><td class="confluenceTd"><p>Text </p></td><td class="confluenceTd"><p>Read Only</p><p>Status of the transaction &amp; NETinfo DBP Reference Number for the transaction and UTN (Unique Transaction Number) retrieved from Core System system (if applicable).</p><p>Data:</p><ul><li><p>Transaction Status: [display one of the statuses below]</p></li><li><p>Reference Number [display number] | UTN [display number]</p></li></ul><p>The possible Transaction Status are:</p><ul><li><p>Pending: Transaction is pending submission at future execution date</p></li><li><p>Pending for Authorisation: Transaction is pending end-user authorization</p></li><li><p>Failed: Transaction has failed to be submitted to Core System for execution</p></li><li><p>Submitted: This is a transit state - transaction has been submitted to Core System but no valid response has been received</p></li><li><p>Pending Execution: Transaction has been submitted and Core System has responded; however processing by Core System has not completed (e.g. could be some kind of manual processing)</p></li><li><p>Completed: Transaction has been processed successfully by bank&rsquo;s Core System</p></li><li><p>Rejected: Transaction has been rejected by Core System</p></li></ul></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Go to Online Activity</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Export Details</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>View Details</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>New Transfer</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>Done</p></td><td class="confluenceTd"><p>Action</p></td><td class="confluenceTd"><p>Enabled</p></td></tr><tr><td class="numberingColumn confluenceTd">8</td><td class="confluenceTd"><p>&lt;Disclaimer&gt;</p></td><td class="confluenceTd"><p>Disclaimer</p></td><td class="confluenceTd"><p>Read Only</p><p>Visible under specific conditions: 'Confirm Page Disclaimer&rsquo; has been configured.</p><p>Displays the disclaimer configured for the respective confirm page.</p></td></tr></tbody></table></div></div></div><div id="expander-453011251" class="expand-container"><div id="expander-control-453011251" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"/></span><span class="expand-control-text">Screen Actions &amp; Event Handling</span></div><div id="expander-content-453011251" class="expand-content"><div class="table-wrap"><table data-layout="default" data-local-id="9ba644a4-1820-4593-8401-7b122e1d40d2" class="confluenceTable"><colgroup><col style="width: 68.0px;" /><col style="width: 112.0px;" /><col style="width: 550.0px;" /></colgroup><tbody><tr><th data-highlight-colour="#deebff" class="confluenceTh"><p>Object</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Event</p></th><th data-highlight-colour="#deebff" class="confluenceTh"><p>Actions</p></th></tr><tr><td class="confluenceTd"><p>Go to Online Activity</p></td><td class="confluenceTd"><p>End-user selects Go to Online Activity.</p></td><td class="confluenceTd"><p>End-user is redirected to Online Transaction Status Page</p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Export Details</p></td><td class="confluenceTd"><p>End-user selects Export Details.</p></td><td class="confluenceTd"><p>The transaction details below (same as details displayed in the 'View Details' Page) are exported to PDF; if a field has no value then it is not displayed. The report also displays a Header and the Timestamp upon report creation.</p><ol start="1"><li><p>Transaction Status: [Transaction Status]</p></li><li><p>Reference Number: [Transaction Reference Number as generated by NETinfo DBP]</p></li><li><p>UTN: [Unique Transaction Number as provided by Core System]; displayed if applicable</p></li><li><p>From Account: [Account Number]</p></li><li><p>To Account:  [Account Number]</p></li><li><p>Amount: [Transfer Amount &amp; CCY]</p></li><li><p>From Description: [From Description]</p></li><li><p>To Description: [To Description]</p></li><li><p>Execution Date:  [Execution Date] - Displayed If &lsquo;Now&rsquo; or  &lsquo;Later&rsquo; option is selected</p></li><li><p>Start Date: [Start Date] - Displayed if &lsquo;Repeated&rsquo; option is selected</p></li><li><p>Final Payment Date: [Final Payment Date OR Calculated value if &lsquo;Number of Executions&rsquo;] - Displayed if &lsquo;Repeated&rsquo; is selected</p></li><li><p>Number of Executions:  [Number of Executions] - Displayed if &lsquo;Repeated&rsquo; &amp; 'Number of Executions' is selected</p></li><li><p>Frequency: [Frequency] - Displayed if &lsquo;Repeated&rsquo; is selected</p></li><li><p>Exchange Rate: [Actual Exchange Currency rate to be used] retrieved from Core System (or NETinfo DBP in case of negotiated rate) - Displayed in case of cross currency transaction</p></li><li><p>Exchange Rate Valid From: [Negotiated rate 'From' Timestamp] - retrieved from NETinfo DBP and displayed in case of Negotiated Rate</p></li><li><p>Exchange Rate Valid To: [Negotiated rate 'To' Timestamp] - retrieved from NETinfo DBP and displayed in case of Negotiated Rate</p></li><li><p>Debit Amount: [Amount &amp; CCY to be debited] as retrieved from Core System (or NETinfo DBP in case of negotiated rate)</p></li><li><p>Charges: [Charges - Amount &amp; CCY] as retrieved from Core System</p></li><li><p>Approval Details:</p><ol start="1"><li><p>Created By: [User Name that has submitted transaction with company name in brackets if available] </p></li><li><p>Approved By: [User Name that has submitted transaction with company name in brackets if available]</p></li></ol></li><li><p>Remaining Signatures: [Approval flow based on Signature Groups]</p></li></ol><p>Note: Exchange Rate, Exchange Rate Valid From/To, Debit Amount &amp; Charges are not displayed when recurring payment, when later execution and when the transaction is pending authorisation</p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>View Details</p></td><td class="confluenceTd"><p>End-user selects View Details.</p></td><td class="confluenceTd"><p>A modal appears displaying the transaction details as presented in the Confirm Page, (fields that do not have value are not displayed) with some additional information as below:</p><ol start="1"><li><p>Transaction Status: [Transaction Status]</p></li><li><p>Reference Number: [Transaction Reference Number as generated by NETinfo DBP]</p></li><li><p>UTN: [Unique Transaction Number as provided by Core System]; displayed if applicable</p></li><li><p>From Account: [Account Number]</p></li><li><p>To Account:  [Account Number]</p></li><li><p>Amount: [Transfer Amount &amp; CCY]</p></li><li><p>From Description: [From Description]</p></li><li><p>To Description: [To Description]</p></li><li><p>Execution Date:  [Execution Date] - Displayed If &lsquo;Now&rsquo; or  &lsquo;Later&rsquo; option is selected</p></li><li><p>Start Date: [Start Date] - Displayed if &lsquo;Repeated&rsquo; option is selected</p></li><li><p>Final Payment Date: [Final Payment Date OR Calculated value if &lsquo;Number of Executions&rsquo;] - Displayed if &lsquo;Repeated&rsquo; is selected</p></li><li><p>Number of Executions: [Number of Executions] - Displayed if &lsquo;Repeated&rsquo; &amp; 'Number of Executions' is selected</p></li><li><p>Frequency: [Frequency] - Displayed if &lsquo;Repeated&rsquo; is selected</p></li><li><p>Exchange Rate: [Actual Exchange Currency rate to be used] retrieved from Core System (or NETinfo DBP in case of negotiated rate) - Displayed in case of cross currency transaction</p></li><li><p>Exchange Rate Valid From: [Negotiated rate 'From' Timestamp] - retrieved from NETinfo DBP and displayed in case of Negotiated Rate</p></li><li><p>Exchange Rate Valid To: [Negotiated rate 'To' Timestamp] - retrieved from NETinfo DBP and displayed in case of Negotiated Rate</p></li><li><p>Debit Amount: [Amount &amp; CCY to be debited] as retrieved from Core System (or NETinfo DBP in case of negotiated rate)</p></li><li><p>Charges: [Charges - Amount &amp; CCY]  as retrieved from Core System</p></li><li><p>Approval Details:</p><ol start="1"><li><p>Created By: [User Name that has submitted transaction with company name in brackets if available] </p></li><li><p>Approved By: [User Name that has submitted transaction with company name in brackets if available]</p></li></ol></li><li><p>Remaining Signatures: [Approval flow based on Signature Groups]</p></li></ol><p>Note: Exchange Rate, Exchange Rate Valid From/To, Debit Amount &amp; Charges are not displayed when recurring payment, when later execution and when the transaction is pending authorisation</p><p><u>Actions:</u></p><ul><li><p>&lt;Close&gt;('X' icon): Enabled- Modal closes</p></li><li><p>Done: Enabled-Modal closes</p></li></ul></td></tr><tr><td class="confluenceTd"><p>New Transfer</p></td><td class="confluenceTd"><p>End-user selects New Transfer.</p></td><td class="confluenceTd"><p>End-user is navigated to a new Transfer Between Own Accounts Step 1: Input</p></td></tr><tr><td class="confluenceTd"><p>Done</p></td><td class="confluenceTd"><p>End-user selects Done.</p></td><td class="confluenceTd"><p>End-user is navigated to the &lsquo;Move Money&rsquo; page.</p></td></tr></tbody></table></div></div></div><p /></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199344.png">C-01-login.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/174424072.png">picture 1 step 3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/173605061.png">picture 1 step 2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166363203.png">picture 1 step 1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199356.png">picture 3 step 1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199359.png">picture 2 step 1.PNG</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199362.png">numbering 1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199365.png">Picture4.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199368.png">input.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199371.png">Picture3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199374.png">Picture2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199377.png">image-20201221-125545.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/173113508.png">picture 1 step 1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/173309965.png">image-20210107-100233.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/172916796.png">image-20210107-112201.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/173047848.png">image-20210107-112219.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/173604870.png">image-20210107-112307.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/173309971.png">image-20210107-112318.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199353.png">picture 1 step 1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/174358529.png">Example 2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/173441150.png">image-20210107-152440.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/173506674.png">image-20210107-152826.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199350.png">picture 1 step 2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/166199347.png">picture 1 step 3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/173441167.png">demo55.netteller.com.cy_netteller-console-war_DynamicPage.xhtml(High Resol Screenshot).png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/172818649.png">demo59.netteller.com.cy_netteller_TransferBetweenMyAccounts.xhtml(High Resol Screenshot).png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/173375732.png">Example 4.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/177504264.png">high resolution.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/177504307.png">high resolution step 3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/177078410.png">high resolution step 1 repeated.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/177700922.png">high resolution step 1 later.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/177078416.png">high resolution step 2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/240615514.png">TransferBetweenMyAccountsInput2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/236814667.png">TransferBetweenMyAccountsConfirm2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/240386191.png">TransferBetweenMyAccountsComplete2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/240484384.png">TransferBetweenMyAccountsInput2.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/240877893.png">TransferBetweenMyAccountsInput3.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/236749060.png">TransferBetweenMyAccountsInput1.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/166199329/1351057429.png">recurring.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 22, 11, 2024 08:16</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
